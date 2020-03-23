@@ -1,0 +1,6 @@
+framework module Pods_MarvelWikiApp {
+  umbrella header "Pods-MarvelWikiApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
