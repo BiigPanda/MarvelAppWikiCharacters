@@ -6,6 +6,7 @@ target 'MarvelWikiApp' do
   use_frameworks!
 
 pod 'Alamofire'
+pod 'SwiftyJSON'
 
   # Pods for MarvelWikiApp
 
