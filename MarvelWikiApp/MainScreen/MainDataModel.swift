@@ -48,7 +48,7 @@ class MarvelHeroeService {
             }
         }
     }
-    
+    //
     func parsedHeroe(json: JSON) -> [MarvelHeroe] {
         var heroeMarvel = MarvelHeroe()
         var heroesMarvel : [MarvelHeroe] = []
