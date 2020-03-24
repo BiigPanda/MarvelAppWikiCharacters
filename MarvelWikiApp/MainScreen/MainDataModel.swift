@@ -32,6 +32,7 @@ class MarvelHeroeService {
         // hash -- b223b72d5f71869ad340852bad7669d5
         // http://gateway.marvel.com/v1/public/comics?ts=1&apikey=cc3e270d04c7e50ec7c7db921c88bb96&hash=b223b72d5f71869ad340852bad7669d5
         //el siguiente paso es crear el objeto en el modelo y hacer las llamadas dejando libre el viewcontroller
+        // Hacer algunos defines para las url crear unos endpoints pragmas y demás
         Alamofire.request("http://gateway.marvel.com/v1/public/characters?ts=1&apikey=cc3e270d04c7e50ec7c7db921c88bb96&hash=b223b72d5f71869ad340852bad7669d5", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil) .responseJSON { response in
             switch response.result {
             case .success(_):
@@ -41,6 +42,7 @@ class MarvelHeroeService {
                 }
                 let json = JSON(result)
                 heroesMarvel = self.parsedHeroe(json: json)
+                print(heroesMarvel)
                 break
             case .failure(let error):
                 print(error)
@@ -48,7 +50,7 @@ class MarvelHeroeService {
             }
         }
     }
-    //
+    
     func parsedHeroe(json: JSON) -> [MarvelHeroe] {
         var heroeMarvel = MarvelHeroe()
         var heroesMarvel : [MarvelHeroe] = []
