@@ -10,6 +10,8 @@
 		25111F478FE592BA924A3BD1 /* Pods_MarvelWikiApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72DB836939243BDFA8BBDBFC /* Pods_MarvelWikiApp.framework */; };
 		56BE323C1639AC2CEEE52299 /* Pods_MarvelWikiAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E0F5808D805FBB437E8D90 /* Pods_MarvelWikiAppTests.framework */; };
 		98D3E42EC95F9BB254BAC0E6 /* Pods_MarvelWikiApp_MarvelWikiAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D64B8CAC85B5B36025A653E /* Pods_MarvelWikiApp_MarvelWikiAppUITests.framework */; };
+		9A01FFC7242BF20200F65DF8 /* MarvelHeroMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A01FFC5242BF20200F65DF8 /* MarvelHeroMainTableViewCell.swift */; };
+		9A01FFC8242BF20200F65DF8 /* MarvelHeroMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A01FFC6242BF20200F65DF8 /* MarvelHeroMainTableViewCell.xib */; };
 		9A245B7E24269AD8004ACA78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A245B7D24269AD8004ACA78 /* AppDelegate.swift */; };
 		9A245B8024269AD8004ACA78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A245B7F24269AD8004ACA78 /* SceneDelegate.swift */; };
 		9A245B8524269AD8004ACA78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A245B8324269AD8004ACA78 /* Main.storyboard */; };
@@ -48,6 +50,8 @@
 		6BEF01D84B8CB9CFC4D6210E /* Pods-MarvelWikiApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelWikiApp.release.xcconfig"; path = "Target Support Files/Pods-MarvelWikiApp/Pods-MarvelWikiApp.release.xcconfig"; sourceTree = "<group>"; };
 		72DB836939243BDFA8BBDBFC /* Pods_MarvelWikiApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelWikiApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93818E019213262AA1083BBF /* Pods-MarvelWikiApp-MarvelWikiAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelWikiApp-MarvelWikiAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-MarvelWikiApp-MarvelWikiAppUITests/Pods-MarvelWikiApp-MarvelWikiAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9A01FFC5242BF20200F65DF8 /* MarvelHeroMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelHeroMainTableViewCell.swift; sourceTree = "<group>"; };
+		9A01FFC6242BF20200F65DF8 /* MarvelHeroMainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MarvelHeroMainTableViewCell.xib; sourceTree = "<group>"; };
 		9A245B7A24269AD8004ACA78 /* MarvelWikiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelWikiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A245B7D24269AD8004ACA78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A245B7F24269AD8004ACA78 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +101,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A01FFC4242BF17A00F65DF8 /* MarvelHeroMainTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				9A01FFC5242BF20200F65DF8 /* MarvelHeroMainTableViewCell.swift */,
+				9A01FFC6242BF20200F65DF8 /* MarvelHeroMainTableViewCell.xib */,
+			);
+			path = MarvelHeroMainTableViewCell;
+			sourceTree = "<group>";
+		};
 		9A245B7124269AD8004ACA78 = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +168,7 @@
 		9AFDF7282426D8DC00455990 /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
+				9A01FFC4242BF17A00F65DF8 /* MarvelHeroMainTableViewCell */,
 				9AFDF7292426D95600455990 /* MainDataModel.swift */,
 				9AFDF72B2426D97600455990 /* MainViewController.swift */,
 				9AFDF72D2426D9A400455990 /* MainUIView.swift */,
@@ -295,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A245B8D24269AD9004ACA78 /* LaunchScreen.storyboard in Resources */,
+				9A01FFC8242BF20200F65DF8 /* MarvelHeroMainTableViewCell.xib in Resources */,
 				9A245B8A24269AD9004ACA78 /* Assets.xcassets in Resources */,
 				9A245B8524269AD8004ACA78 /* Main.storyboard in Resources */,
 			);
@@ -429,6 +444,7 @@
 				9AFDF72C2426D97600455990 /* MainViewController.swift in Sources */,
 				9AFDF72A2426D95600455990 /* MainDataModel.swift in Sources */,
 				9A245B8024269AD8004ACA78 /* SceneDelegate.swift in Sources */,
+				9A01FFC7242BF20200F65DF8 /* MarvelHeroMainTableViewCell.swift in Sources */,
 				9AFDF72E2426D9A400455990 /* MainUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

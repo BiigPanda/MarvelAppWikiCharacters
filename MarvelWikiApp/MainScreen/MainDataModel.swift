@@ -27,7 +27,7 @@ struct Endpoints {
 
 class MarvelHeroeService {
     
-    func callAPICharacters() {
+    func callAPICharacters(completionHandler: @escaping (_ result: [MarvelHeroe], _ error: Error?) -> Void)  {
         var heroesMarvel = [MarvelHeroe()]
         let endpoints = Endpoints()
         Alamofire.request(endpoints.endpointCharacter, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil) .responseJSON { response in
@@ -39,10 +39,14 @@ class MarvelHeroeService {
                 }
                 let json = JSON(result)
                 heroesMarvel = self.parsedHeroe(json: json)
-                print(heroesMarvel)
+                // eliminar el user defaults y hacer un core data
+                let defaults = UserDefaults.standard
+                let data = Data(buffer: UnsafeBufferPointer(start: heroesMarvel, count: heroesMarvel.count))
+                defaults.set(data, forKey: "SavedArray")
+                completionHandler(heroesMarvel,nil)
                 break
             case .failure(let error):
-                print(error)
+                completionHandler(heroesMarvel,error)
                 break
             }
         }

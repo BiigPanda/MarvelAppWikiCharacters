@@ -11,10 +11,18 @@ import UIKit
 class MainViewController: UIViewController {
     
     private let marvelClient = MarvelHeroeService()
-
+    var marvelView = MainUIView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        marvelClient.callAPICharacters()
-        
+        self.downloadCharacters()
+    
+    }
+    
+    func downloadCharacters() {
+        marvelClient.callAPICharacters { (heroes, error) in
+                     let defaults = UserDefaults.standard
+                     self.marvelView.heroesMarvel = defaults.array(forKey: "SavedArray") as! [MarvelHeroe]
+                 }
     }
 }

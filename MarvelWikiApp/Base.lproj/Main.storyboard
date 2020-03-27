@@ -11,16 +11,48 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="MarvelWikiApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="MainUIView" customModule="MarvelWikiApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jeJ-j6-Z9B">
+                                <rect key="frame" x="0.0" y="100" width="414" height="762"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MarvelHeroeCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MarvelHeroeCell" rowHeight="250" id="ar5-UW-9BC" customClass="MarvelHeroMainTableViewCell" customModule="MarvelWikiApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="250"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ar5-UW-9BC" id="XTc-Y5-A1f">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Flp-4i-RcP">
+                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Flp-4i-RcP" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="0PV-et-cNw"/>
+                            <constraint firstItem="jeJ-j6-Z9B" firstAttribute="top" secondItem="Flp-4i-RcP" secondAttribute="bottom" symbolic="YES" id="1h2-Fw-Zz3"/>
+                            <constraint firstItem="jeJ-j6-Z9B" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7wf-8z-d2x"/>
+                            <constraint firstItem="Flp-4i-RcP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="iKy-6a-XBm"/>
+                            <constraint firstItem="jeJ-j6-Z9B" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="k1G-ek-dUE"/>
+                            <constraint firstItem="Flp-4i-RcP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qlG-k2-w9h"/>
+                            <constraint firstItem="jeJ-j6-Z9B" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="yEH-cX-QzD"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outlet property="mainHeroeTableView" destination="jeJ-j6-Z9B" id="uFq-tO-czG"/>
+                        </connections>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="127"/>
+            <point key="canvasLocation" x="131.8840579710145" y="126.5625"/>
         </scene>
     </scenes>
 </document>
