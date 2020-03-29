@@ -11,18 +11,29 @@ import UIKit
 class MainViewController: UIViewController {
     
     private let marvelClient = MarvelHeroeService()
-    var marvelView = MainUIView()
+    
+    @IBOutlet var marvelView: MainUIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.downloadCharacters()
-    
-    }
-    
-    func downloadCharacters() {
+//        self.downloadCharacters(completionHandler: { (heroes, error) in
+//            if heroes.count > 0 {
+//                self.marvelView.heroesMarvel = heroes
+//                self.marvelView.awakeFromNib()
+//            }
+//        })
+
+    }    
+}
+
+extension MainViewController : MainUIViewCharactersDelegate {
+    func downloadCharacters(completionHandler: @escaping (_ result: [MarvelHeroe], _ error: Error?) -> Void) {
+        self.marvelView = MainUIView()
         marvelClient.callAPICharacters { (heroes, error) in
-                     let defaults = UserDefaults.standard
-                     self.marvelView.heroesMarvel = defaults.array(forKey: "SavedArray") as! [MarvelHeroe]
-                 }
+            if (error == nil){
+                self.marvelView.heroesMarvel = heroes
+                self.marvelView.awakeFromNib()
+            }
+        }
     }
 }

@@ -28,27 +28,44 @@ struct Endpoints {
 class MarvelHeroeService {
     
     func callAPICharacters(completionHandler: @escaping (_ result: [MarvelHeroe], _ error: Error?) -> Void)  {
-        var heroesMarvel = [MarvelHeroe()]
+        var heroesMarvel : [MarvelHeroe] = []
         let endpoints = Endpoints()
-        Alamofire.request(endpoints.endpointCharacter, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil) .responseJSON { response in
+//        Alamofire.request(endpoints.endpointCharacter, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil) .responseJSON { response in
+//            switch response.result {
+//            case .success(_):
+//                guard let result = response.result.value as? [String:Any] else{
+//                    assertionFailure()
+//                    return
+//                }
+//                let json = JSON(result)
+//                heroesMarvel = self.parsedHeroe(json: json)
+//                // eliminar el user defaults y hacer un core data
+//                completionHandler(heroesMarvel,nil)
+//                break
+//            case .failure(let error):
+//                completionHandler(heroesMarvel,error)
+//                break
+//            }
+//        }
+        
+        
+        Alamofire.request(endpoints.endpointCharacter).responseJSON { (response) in
             switch response.result {
-            case .success(_):
-                guard let result = response.result.value as? [String:Any] else{
-                    assertionFailure()
-                    return
-                }
-                let json = JSON(result)
-                heroesMarvel = self.parsedHeroe(json: json)
-                // eliminar el user defaults y hacer un core data
-                let defaults = UserDefaults.standard
-                let data = Data(buffer: UnsafeBufferPointer(start: heroesMarvel, count: heroesMarvel.count))
-                defaults.set(data, forKey: "SavedArray")
-                completionHandler(heroesMarvel,nil)
-                break
-            case .failure(let error):
-                completionHandler(heroesMarvel,error)
-                break
-            }
+                   case .success(_):
+                       guard let result = response.result.value as? [String:Any] else{
+                           assertionFailure()
+                           return
+                       }
+                       let json = JSON(result)
+                       heroesMarvel = self.parsedHeroe(json: json)
+                       // eliminar el user defaults y hacer un core data
+                       completionHandler(heroesMarvel,nil)
+                       break
+                   case .failure(let error):
+                       completionHandler(heroesMarvel,error)
+                       break
+                   }
+            
         }
     }
     
