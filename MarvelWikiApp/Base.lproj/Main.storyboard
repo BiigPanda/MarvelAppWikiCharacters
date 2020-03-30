@@ -11,7 +11,7 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="MarvelWikiApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="MainUIView" customModule="MarvelWikiApp" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -29,8 +29,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="8bC-Xf-vdC" id="31R-gf-iQY"/>
-                                    <outlet property="delegate" destination="8bC-Xf-vdC" id="g5d-pY-8vD"/>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="UqP-Cu-ygF"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="iak-Df-6B5"/>
                                 </connections>
                             </tableView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Flp-4i-RcP">
@@ -49,12 +49,9 @@
                             <constraint firstItem="jeJ-j6-Z9B" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="yEH-cX-QzD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <connections>
-                            <outlet property="mainHeroeTableView" destination="jeJ-j6-Z9B" id="3vX-p2-rNG"/>
-                        </connections>
                     </view>
                     <connections>
-                        <outlet property="marvelView" destination="8bC-Xf-vdC" id="uG9-dv-np3"/>
+                        <outlet property="tableViewHeroes" destination="jeJ-j6-Z9B" id="QiO-PC-ED5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
