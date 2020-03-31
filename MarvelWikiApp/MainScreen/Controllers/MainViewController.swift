@@ -46,8 +46,8 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             let heroeMarvelDetail = heroesCharacter[indexPath.row]
             cell.lblNameHeroe.text = heroeMarvelDetail.name
             cell.descripHeroe.text = heroeMarvelDetail.descrip
-            cell.lblNumSeries.text = String(describing: heroeMarvelDetail.numSeries)
-            cell.lblNumComics.text = String(describing: heroeMarvelDetail.numComic)
+            cell.lblNumSeries.text = "\(heroeMarvelDetail.numSeries ?? 0)"
+            cell.lblNumComics.text = "\(heroeMarvelDetail.numComic ?? 0)"
             return cell
         }
                 return cell
