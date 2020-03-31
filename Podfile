@@ -7,6 +7,8 @@ target 'MarvelWikiApp' do
 
 pod 'Alamofire'
 pod 'SwiftyJSON'
+pod 'JGProgressHUD'
+pod 'SDWebImage'
 
   # Pods for MarvelWikiApp
 
