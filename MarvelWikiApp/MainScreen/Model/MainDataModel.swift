@@ -15,7 +15,7 @@ import CoreData
 
 class MarvelHeroe {
     var id: Int = 0
-    var name: String = ""
+    var name: String?
     var descrip: String?
     var thumbnail: String = ""
     var numComic: Int?

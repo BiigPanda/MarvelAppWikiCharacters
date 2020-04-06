@@ -20,7 +20,6 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     var heroesCharacter : [MarvelHeroe] = []
     var filterHeroesCharacter : [MarvelHeroe] = []
         
-    var heroeTasks = [NSManagedObject]()
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,8 +36,8 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
           let hud = JGProgressHUD(style: .dark)
           hud.textLabel.text = "Loading"
           hud.show(in: self.view)
-          heroeTasks = loadCharacter() ?? [NSManagedObject]()
-        if heroeTasks.count == 0 {
+          heroesCharacter = loadCharacter()
+        if heroesCharacter.count == 0 {
             marvelClient.callAPICharacters { (heroes, error) in
                     if (error == nil){
                       self.heroesCharacter = heroes
@@ -57,11 +56,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         if filterHeroesCharacter.count > 0 {
             return filterHeroesCharacter.count
         } else {
-            if heroeTasks.count > 0 {
-                return heroeTasks.count
-            } else {
-                return heroesCharacter.count
-            }
+            return heroesCharacter.count
         }
     }
     
@@ -81,19 +76,6 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             cell.imgHeroe.sd_setImage(with: URL(string: heroeMarvelDetail.thumbnail), placeholderImage: UIImage(named:"img_splash_logo"))
             return cell
         } else {
-            if heroeTasks.count > 0 {
-                let marvelHeroe = heroeTasks[indexPath.row]
-                cell.lblNameHeroe.text = marvelHeroe.value(forKey: "name") as? String
-                if marvelHeroe.value(forKey: "descrip") as? String == "" || marvelHeroe.value(forKey: "descrip") as? String == nil {
-                    cell.descripHeroe.text = "This heroe hasn't description"
-                } else {
-                    cell.descripHeroe.text = marvelHeroe.value(forKey: "descrip") as? String
-                }
-                cell.lblNumSeries.text = "\(marvelHeroe.value(forKey: "numseries") ?? "0")"
-                cell.lblNumComics.text = "\(marvelHeroe.value(forKey: "numcomics") ?? "0")"
-                cell.imgHeroe.sd_setImage(with: URL(string: (marvelHeroe.value(forKey: "thumbnail") as? String)!), placeholderImage: UIImage(named:"img_splash_logo"))
-                return cell
-            } else {
                 let heroeMarvelDetail = heroesCharacter[indexPath.row]
                 cell.lblNameHeroe.text = heroeMarvelDetail.name
                 if heroeMarvelDetail.descrip == "" || heroeMarvelDetail.descrip == nil {
@@ -105,7 +87,6 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 cell.lblNumComics.text = "\(heroeMarvelDetail.numComic ?? 0)"
                 cell.imgHeroe.sd_setImage(with: URL(string: heroeMarvelDetail.thumbnail), placeholderImage: UIImage(named:"img_splash_logo"))
                 return cell
-            }
         }
     }
     
@@ -121,7 +102,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }
         filterHeroesCharacter = heroesCharacter.filter({ (heroe) -> Bool in
             guard let text = searchBar.text else {return false}
-            return heroe.name.contains(text)
+            return (heroe.name?.contains(text))!
         })
         tableViewHeroes.reloadData()
     }
@@ -130,28 +111,39 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         searchBarHeroe.resignFirstResponder()
     }
     
-    func loadCharacter() -> [NSManagedObject]? {
+    func loadCharacter() -> [MarvelHeroe] {
          // 1
-         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-         let managedContext = appDelegate.persistentContainer.viewContext
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        var arrayHeroes : [MarvelHeroe] = []
+        var emptyHeroe = MarvelHeroe()
         
          // 2
          let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "MarvelHeroeCharacter")
-         var result = [NSManagedObject]()
         
          // 3
          do {
            let records = try managedContext.fetch(fetchRequest)
+            // crear un objeto vacío añadir cada campo a su propiedad correspondiente  crear el array de heroes y devolverlo
+          
             if let records = records as? [NSManagedObject]{
-                result = records
-                return result
+                for record in records {
+                    emptyHeroe.name = record.value(forKey: "name") as? String
+                    emptyHeroe.descrip = record.value(forKey: "descrip") as? String
+                    emptyHeroe.thumbnail = record.value(forKey: "thumbnail") as? String ?? ""
+                    emptyHeroe.numComic = record.value(forKey: "numcomics") as? Int
+                    emptyHeroe.numSeries = record.value(forKey: "numseries") as? Int
+                    arrayHeroes.append(emptyHeroe)
+                    emptyHeroe = MarvelHeroe()
+                }
+                return arrayHeroes
             }
         } catch let error as NSError {
            print("No ha sido posible cargar \(error), \(error.userInfo)")
-            return nil
+            return []
         }
         // 4
-        return nil
+        return []
     }
 }
 
