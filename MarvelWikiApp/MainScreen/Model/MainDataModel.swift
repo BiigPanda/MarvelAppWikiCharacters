@@ -22,9 +22,7 @@ class MarvelHeroe {
     var numSeries: Int?
 }
 
-struct Endpoints {
-    let endpointCharacter = "http://gateway.marvel.com/v1/public/characters?ts=1&apikey=cc3e270d04c7e50ec7c7db921c88bb96&hash=b223b72d5f71869ad340852bad7669d5"
-}
+
 
 class MarvelHeroeService {
     
@@ -36,8 +34,8 @@ class MarvelHeroeService {
     
     func callAPICharacters(completionHandler: @escaping (_ result: [MarvelHeroe], _ error: Error?) -> Void)  {
         var heroesMarvel : [MarvelHeroe] = []
-        let endpoints = Endpoints()
-        Alamofire.request(endpoints.endpointCharacter).responseJSON { (response) in
+        let endpoints = Endpoints.init()
+        Alamofire.request(endpoints.endPointCharacter).responseJSON { (response) in
             switch response.result {
                    case .success(_):
                        guard let result = response.result.value as? [String:Any] else{

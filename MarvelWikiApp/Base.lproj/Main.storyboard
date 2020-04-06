@@ -58,7 +58,7 @@
                     <connections>
                         <outlet property="searchBarHeroe" destination="Flp-4i-RcP" id="KYR-rc-9sd"/>
                         <outlet property="tableViewHeroes" destination="jeJ-j6-Z9B" id="QiO-PC-ED5"/>
-                        <segue destination="eUc-Bh-37e" kind="presentation" identifier="detailCharacter" modalPresentationStyle="fullScreen" id="QVE-is-7ca"/>
+                        <segue destination="eUc-Bh-37e" kind="presentation" identifier="detailCharacter" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="QVE-is-7ca"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -81,10 +81,10 @@
             </objects>
             <point key="canvasLocation" x="-584" y="127"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail Character View Controller-->
         <scene sceneID="MKa-oM-Vv3">
             <objects>
-                <viewController id="eUc-Bh-37e" sceneMemberID="viewController">
+                <viewController id="eUc-Bh-37e" customClass="DetailCharacterViewController" customModule="MarvelWikiApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O3u-Gv-lS1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -163,6 +163,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dmL-85-zay">
+                                <rect key="frame" x="19" y="44" width="48" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Hzc-YG-05v"/>
+                                </constraints>
+                                <state key="normal" title="&lt; Back"/>
+                                <connections>
+                                    <action selector="backToMain:" destination="eUc-Bh-37e" eventType="touchUpInside" id="QC0-4Y-byD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -172,9 +182,11 @@
                             <constraint firstItem="bx1-Ob-LcM" firstAttribute="top" secondItem="U40-pN-cif" secondAttribute="bottom" constant="3" id="5Im-Np-het"/>
                             <constraint firstItem="U40-pN-cif" firstAttribute="width" secondItem="CfV-U9-VmA" secondAttribute="width" id="5sV-Yg-H8R"/>
                             <constraint firstItem="2jW-rE-47h" firstAttribute="centerX" secondItem="5Oe-f6-0uU" secondAttribute="centerX" id="7TP-nD-OyW"/>
+                            <constraint firstItem="dmL-85-zay" firstAttribute="top" secondItem="5Oe-f6-0uU" secondAttribute="top" id="AlZ-LZ-b5K"/>
                             <constraint firstItem="bx1-Ob-LcM" firstAttribute="top" secondItem="U40-pN-cif" secondAttribute="bottom" constant="3" id="Alz-Ej-uxb"/>
                             <constraint firstItem="bg3-NH-2JC" firstAttribute="leading" secondItem="5Oe-f6-0uU" secondAttribute="leading" constant="16" id="C8h-dj-uUV"/>
                             <constraint firstItem="2jW-rE-47h" firstAttribute="top" secondItem="5Oe-f6-0uU" secondAttribute="top" id="Drw-Bj-zVJ"/>
+                            <constraint firstItem="2jW-rE-47h" firstAttribute="leading" secondItem="dmL-85-zay" secondAttribute="trailing" constant="30" id="RLb-7X-LIC"/>
                             <constraint firstItem="yk9-cc-K8Q" firstAttribute="top" secondItem="CfV-U9-VmA" secondAttribute="bottom" constant="8" id="STw-Ph-4BS"/>
                             <constraint firstItem="5Oe-f6-0uU" firstAttribute="trailing" secondItem="2jW-rE-47h" secondAttribute="trailing" constant="97" id="Shf-pw-3tY"/>
                             <constraint firstItem="5Oe-f6-0uU" firstAttribute="trailing" secondItem="kvv-Ai-f2C" secondAttribute="trailing" constant="97" id="VBJ-Up-agV"/>
@@ -189,6 +201,7 @@
                             <constraint firstItem="pzs-qs-PiG" firstAttribute="top" secondItem="kvv-Ai-f2C" secondAttribute="bottom" constant="3" id="jh6-Ez-7dD"/>
                             <constraint firstItem="5Oe-f6-0uU" firstAttribute="trailing" secondItem="bg3-NH-2JC" secondAttribute="trailing" constant="16" id="k2X-tw-75d"/>
                             <constraint firstAttribute="trailing" secondItem="ZDX-5m-ji8" secondAttribute="trailing" id="mEW-68-If0"/>
+                            <constraint firstItem="dmL-85-zay" firstAttribute="leading" secondItem="5Oe-f6-0uU" secondAttribute="leading" constant="19" id="pMO-Mo-xHB"/>
                             <constraint firstItem="bx1-Ob-LcM" firstAttribute="leading" secondItem="O3u-Gv-lS1" secondAttribute="leading" id="pMx-9b-WQd"/>
                             <constraint firstItem="ZDX-5m-ji8" firstAttribute="leading" secondItem="O3u-Gv-lS1" secondAttribute="leading" id="qpg-9n-bCA"/>
                             <constraint firstItem="5Oe-f6-0uU" firstAttribute="bottom" secondItem="bg3-NH-2JC" secondAttribute="bottom" constant="30" id="qwD-9v-Qt9"/>
@@ -201,10 +214,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5Oe-f6-0uU"/>
                     </view>
+                    <navigationItem key="navigationItem" id="YwP-Z6-zBc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HdM-k2-wx3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1486" y="127"/>
+            <point key="canvasLocation" x="1386" y="127"/>
         </scene>
     </scenes>
 </document>

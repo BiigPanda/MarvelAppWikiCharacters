@@ -32,25 +32,8 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         tableViewHeroes.register(UINib(nibName: "MarvelHeroMainTableViewCell", bundle: nil), forCellReuseIdentifier: "MarvelHeroeCell")
     }
     
-    func downloadCharacters() {
-          let hud = JGProgressHUD(style: .dark)
-          hud.textLabel.text = "Loading"
-          hud.show(in: self.view)
-          heroesCharacter = loadCharacter()
-        if heroesCharacter.count == 0 {
-            marvelClient.callAPICharacters { (heroes, error) in
-                    if (error == nil){
-                      self.heroesCharacter = heroes
-                      self.tableViewHeroes.reloadData()
-                      hud.dismiss()
-                    }
-                }
-        } else {
-            self.tableViewHeroes.reloadData()
-            hud.dismiss()
-        }
-      }
 
+// MARK: Table View Methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if filterHeroesCharacter.count > 0 {
@@ -90,9 +73,21 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailHeroe = heroesCharacter[indexPath.row]
+        let idHeroe = detailHeroe.id
+        // montar en el modelo la
+        tableViewHeroes.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "detailCharacter", sender: nil)
+        
+        
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 250.0
     }
+    
+// MARK: Search Bar methods
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard !searchText.isEmpty else {
@@ -110,6 +105,8 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBarHeroe.resignFirstResponder()
     }
+
+// MARK: Core Data and Service Methods
     
     func loadCharacter() -> [MarvelHeroe] {
          // 1
@@ -145,5 +142,25 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         // 4
         return []
     }
+    
+    
+    func downloadCharacters() {
+          let hud = JGProgressHUD(style: .dark)
+          hud.textLabel.text = "Loading"
+          hud.show(in: self.view)
+          heroesCharacter = loadCharacter()
+        if heroesCharacter.count == 0 {
+            marvelClient.callAPICharacters { (heroes, error) in
+                    if (error == nil){
+                      self.heroesCharacter = heroes
+                      self.tableViewHeroes.reloadData()
+                      hud.dismiss()
+                    }
+                }
+        } else {
+            self.tableViewHeroes.reloadData()
+            hud.dismiss()
+        }
+      }
 }
 
