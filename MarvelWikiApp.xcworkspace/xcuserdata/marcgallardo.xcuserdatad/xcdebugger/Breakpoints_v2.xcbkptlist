@@ -3,4 +3,198 @@
    uuid = "E8E91207-E5DD-46C8-9D33-072066D03822"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "88C718F5-3CC4-413C-9A3B-82BFF950D7E9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MarvelWikiApp/MainScreen/Model/MainDataModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "callAPIDetailCharacter(idDetailHeroe:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BE7CE1D4-8BDF-4BD4-90E9-832FA24D5700"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MarvelWikiApp/MainScreen/Controllers/MainViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DC0C910B-BCE0-46CF-AB92-26EEDD87FAA3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MarvelWikiApp/MainScreen/Controllers/MainViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "20CD4117-1ACA-4F85-BD81-BCAC4EBD4925"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MarvelWikiApp/MainScreen/Controllers/MainViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "20CD4117-1ACA-4F85-BD81-BCAC4EBD4925 - 4bb46f727bc936f7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MarvelWikiApp.MainViewController.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "MarvelWikiApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marcgallardo/Developer/Proyectos/MarvelAppWiki/MarvelWikiApp/MainScreen/Controllers/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "504">
+               </Location>
+               <Location
+                  uuid = "20CD4117-1ACA-4F85-BD81-BCAC4EBD4925 - 852caf1e9bbcfdb4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (MarvelWikiApp.DetailCharacter, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MarvelWikiApp.MainViewController.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "MarvelWikiApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marcgallardo/Developer/Proyectos/MarvelAppWiki/MarvelWikiApp/MainScreen/Controllers/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "134">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BD31A0C4-3AD0-4467-BDB5-500708DF4616"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MarvelWikiApp/MainScreen/Controllers/MainViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
+            landmarkName = "downloadDetailCharacter(idDetailCharacter:completionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BD31A0C4-3AD0-4467-BDB5-500708DF4616 - 60966d9d39ebf2be"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MarvelWikiApp.MainViewController.downloadDetailCharacter(idDetailCharacter: Swift.String, completionHandler: (MarvelWikiApp.DetailCharacter, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "MarvelWikiApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marcgallardo/Developer/Proyectos/MarvelAppWiki/MarvelWikiApp/MainScreen/Controllers/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "170"
+                  endingLineNumber = "170"
+                  offsetFromSymbolStart = "648">
+               </Location>
+               <Location
+                  uuid = "BD31A0C4-3AD0-4467-BDB5-500708DF4616 - f0a5813462034410"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (MarvelWikiApp.DetailCharacter, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MarvelWikiApp.MainViewController.downloadDetailCharacter(idDetailCharacter: Swift.String, completionHandler: (MarvelWikiApp.DetailCharacter, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "MarvelWikiApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marcgallardo/Developer/Proyectos/MarvelAppWiki/MarvelWikiApp/MainScreen/Controllers/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "171"
+                  endingLineNumber = "171"
+                  offsetFromSymbolStart = "93">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D92F2C6F-7DD6-40A7-A5CE-EF0D31974F85"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MarvelWikiApp/MainScreen/Model/MainDataModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "callAPIDetailCharacter(idDetailHeroe:completionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D92F2C6F-7DD6-40A7-A5CE-EF0D31974F85 - 70f9f4efbadd8682"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MarvelWikiApp.MarvelHeroeService.callAPIDetailCharacter(idDetailHeroe: Swift.String, completionHandler: (MarvelWikiApp.DetailCharacter, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "MarvelWikiApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marcgallardo/Developer/Proyectos/MarvelAppWiki/MarvelWikiApp/MainScreen/Model/MainDataModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97"
+                  offsetFromSymbolStart = "455">
+               </Location>
+               <Location
+                  uuid = "D92F2C6F-7DD6-40A7-A5CE-EF0D31974F85 - 489e8d0ae0db8635"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in MarvelWikiApp.MarvelHeroeService.callAPIDetailCharacter(idDetailHeroe: Swift.String, completionHandler: (MarvelWikiApp.DetailCharacter, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "MarvelWikiApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marcgallardo/Developer/Proyectos/MarvelAppWiki/MarvelWikiApp/MainScreen/Model/MainDataModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "218">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

@@ -19,12 +19,12 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     private let marvelClient = MarvelHeroeService()
     var heroesCharacter : [MarvelHeroe] = []
     var filterHeroesCharacter : [MarvelHeroe] = []
+    var detailHeroeCharacter = DetailCharacter()
         
         
     override func viewDidLoad() {
         super.viewDidLoad()
         downloadCharacters()
-        
         tableViewHeroes.delegate = self
         tableViewHeroes.dataSource = self
         tableViewHeroes.keyboardDismissMode = .onDrag
@@ -75,12 +75,12 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailHeroe = heroesCharacter[indexPath.row]
-        let idHeroe = detailHeroe.id
-        // montar en el modelo la
-        tableViewHeroes.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: "detailCharacter", sender: nil)
-        
-        
+        let idHeroe = String(detailHeroe.id)
+        downloadDetailCharacter(idDetailCharacter: idHeroe, completionHandler: {(detailHeroe, error) in
+            print(self.detailHeroeCharacter)
+            self.tableViewHeroes.deselectRow(at: indexPath, animated: true)
+            self.performSegue(withIdentifier: "detailCharacter", sender: nil)
+        })
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -162,5 +162,16 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             hud.dismiss()
         }
       }
+    
+    func downloadDetailCharacter(idDetailCharacter: String, completionHandler: @escaping (_ result: DetailCharacter, _ error: Error?) -> Void) {
+        let hud = JGProgressHUD(style: .dark)
+        hud.textLabel.text = "Loading"
+        hud.show(in: self.view)
+        marvelClient.callAPIDetailCharacter(idDetailHeroe: idDetailCharacter) { (detailHeroe, error) in
+            self.detailHeroeCharacter = detailHeroe
+            completionHandler(detailHeroe,nil)
+            hud.dismiss()
+        }
+    }
 }
 
