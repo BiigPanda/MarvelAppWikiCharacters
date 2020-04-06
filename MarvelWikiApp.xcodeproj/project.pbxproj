@@ -108,6 +108,13 @@
 			path = MarvelHeroMainTableViewCell;
 			sourceTree = "<group>";
 		};
+		9A06BE22243B27CD00368772 /* DetailCharacter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DetailCharacter;
+			sourceTree = "<group>";
+		};
 		9A245B7124269AD8004ACA78 = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +140,7 @@
 		9A245B7C24269AD8004ACA78 /* MarvelWikiApp */ = {
 			isa = PBXGroup;
 			children = (
+				9A06BE22243B27CD00368772 /* DetailCharacter */,
 				9AFDF7282426D8DC00455990 /* MainScreen */,
 				9A245B7D24269AD8004ACA78 /* AppDelegate.swift */,
 				9A245B7F24269AD8004ACA78 /* SceneDelegate.swift */,
