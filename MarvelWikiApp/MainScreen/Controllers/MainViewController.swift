@@ -75,7 +75,11 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailHeroe = heroesCharacter[indexPath.row]
-        let idHeroe = String(detailHeroe.id)
+        guard let idDetailHeroe = detailHeroe.identifier else {
+            print ("identifier error")
+            return
+        }
+        let idHeroe = "\(idDetailHeroe)"
         downloadDetailCharacter(idDetailCharacter: idHeroe, completionHandler: {(detailHeroe, error) in
             print(self.detailHeroeCharacter)
             self.tableViewHeroes.deselectRow(at: indexPath, animated: true)
@@ -128,8 +132,9 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                     emptyHeroe.name = record.value(forKey: "name") as? String
                     emptyHeroe.descrip = record.value(forKey: "descrip") as? String
                     emptyHeroe.thumbnail = record.value(forKey: "thumbnail") as? String ?? ""
-                    emptyHeroe.numComic = record.value(forKey: "numcomics") as? Int
-                    emptyHeroe.numSeries = record.value(forKey: "numseries") as? Int
+                    emptyHeroe.identifier = record.value(forKey: "identifier") as? Int32
+                    emptyHeroe.numComic = record.value(forKey: "numcomics") as? Int32
+                    emptyHeroe.numSeries = record.value(forKey: "numseries") as? Int32
                     arrayHeroes.append(emptyHeroe)
                     emptyHeroe = MarvelHeroe()
                 }

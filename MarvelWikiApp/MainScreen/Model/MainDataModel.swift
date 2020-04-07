@@ -14,12 +14,12 @@ import CoreData
 
 
 class MarvelHeroe {
-    var id: Int = 0
+    var identifier: Int32?
     var name: String?
     var descrip: String?
     var thumbnail: String = ""
-    var numComic: Int?
-    var numSeries: Int?
+    var numComic: Int32?
+    var numSeries: Int32?
 }
 
 
@@ -61,10 +61,10 @@ class MarvelHeroeService {
         for (_,subJson):(String, JSON) in json["data"]["results"] {
                           heroeMarvel.name = subJson["name"].stringValue
                           heroeMarvel.descrip = subJson["description"].stringValue
-                          heroeMarvel.id = subJson["id"].intValue
+                          heroeMarvel.identifier = Int32(subJson["id"].intValue)
                           heroeMarvel.thumbnail = subJson["thumbnail"]["path"].stringValue + "." + subJson["thumbnail"]["extension"].stringValue
-                          heroeMarvel.numComic = subJson["comics"]["returned"].intValue
-                          heroeMarvel.numSeries = subJson["series"]["returned"].intValue
+                          heroeMarvel.numComic = Int32(subJson["comics"]["returned"].intValue)
+                          heroeMarvel.numSeries = Int32(subJson["series"]["returned"].intValue)
                           saveHeroeCoreData(marvelHeroe: heroeMarvel)
                           heroesMarvel.append(heroeMarvel)
                           heroeMarvel = MarvelHeroe()
@@ -79,7 +79,7 @@ class MarvelHeroeService {
 
         heroeTask.setValue(marvelHeroe.name, forKey: "name")
         heroeTask.setValue(marvelHeroe.descrip, forKey: "descrip")
-        heroeTask.setValue(marvelHeroe.id, forKey: "id")
+        heroeTask.setValue(marvelHeroe.identifier, forKey: "identifier")
         heroeTask.setValue(marvelHeroe.thumbnail, forKey: "thumbnail")
         heroeTask.setValue(marvelHeroe.numComic, forKey: "numcomics")
         heroeTask.setValue(marvelHeroe.numSeries, forKey: "numseries")
@@ -91,7 +91,7 @@ class MarvelHeroeService {
     }
     
     func callAPIDetailCharacter(idDetailHeroe: String, completionHandler: @escaping (_ result: DetailCharacter, _ error: Error?) -> Void)  {
-        let detailHeroe = DetailCharacter()
+        var detailHeroe = DetailCharacter()
         
         let endPointDetailCharacter = "https://gateway.marvel.com:443/v1/public/characters/\(idDetailHeroe)?ts=1&apikey=cc3e270d04c7e50ec7c7db921c88bb96&hash=b223b72d5f71869ad340852bad7669d5"
         Alamofire.request(endPointDetailCharacter).responseJSON { (response) in
@@ -102,7 +102,8 @@ class MarvelHeroeService {
                                 return
                             }
                             let json = JSON(result)
-                            print(json)
+                            detailHeroe = self.parsedDetailHeroe(json: json)
+                            print(detailHeroe)
                            // faltaría aqui parsearlo  y devolver el detail heroe
                            // detailHeroe = self.parsedHeroe(json: json)
                             completionHandler(detailHeroe,nil)
@@ -115,21 +116,20 @@ class MarvelHeroeService {
              }
     }
     
-//    func parsedDetailHeroe(json: JSON) -> DetailCharacter {
-//         var heroeMarvel = MarvelHeroe()
-//         var heroesMarvel : [MarvelHeroe] = []
-//         heroesMarvel.reserveCapacity(json["data"]["results"].count)
-//         for (_,subJson):(String, JSON) in json["data"]["results"] {
-//                           heroeMarvel.name = subJson["name"].stringValue
-//                           heroeMarvel.descrip = subJson["description"].stringValue
-//                           heroeMarvel.id = subJson["id"].intValue
-//                           heroeMarvel.thumbnail = subJson["thumbnail"]["path"].stringValue + "." + subJson["thumbnail"]["extension"].stringValue
-//                           heroeMarvel.numComic = subJson["comics"]["returned"].intValue
-//                           heroeMarvel.numSeries = subJson["series"]["returned"].intValue
-//                           saveHeroeCoreData(marvelHeroe: heroeMarvel)
-//                           heroesMarvel.append(heroeMarvel)
-//                           heroeMarvel = MarvelHeroe()
-//                       }
-//         return heroesMarvel
-//     }
+    func parsedDetailHeroe(json: JSON) -> DetailCharacter {
+        let detailHeroe = DetailCharacter()
+        print(json)
+        for (_,subJson):(String, JSON) in json["data"]["results"] {
+            detailHeroe.nameDetail = subJson["name"].stringValue
+            detailHeroe.thumbnailDetail = subJson["thumbnail"]["path"].stringValue + "." + subJson["thumbnail"]["extension"].stringValue
+            detailHeroe.idDetail = Int32(subJson["id"].intValue)
+            for (_,subJsonComics):(String, JSON) in subJson["comics"]["items"] {
+                detailHeroe.titleComics.append(subJsonComics["name"].stringValue)
+            }
+            for (_,subJsonComics):(String, JSON) in subJson["series"]["items"] {
+               detailHeroe.titleSeries.append(subJsonComics["name"].stringValue)
+           }
+        }
+        return detailHeroe
+    }
 }
