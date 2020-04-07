@@ -122,7 +122,7 @@
                                     <constraint firstAttribute="height" constant="1" id="QEv-pT-YKw"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLU-ub-mfy">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLU-ub-mfy">
                                 <rect key="frame" x="16" y="371" width="382" height="199"/>
                                 <constraints>
                                     <constraint firstAttribute="height" priority="750" constant="199" id="JE6-Qc-Ahw"/>
@@ -154,7 +154,7 @@
                                     <constraint firstAttribute="height" constant="1" id="xUe-C1-d0v"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bg3-NH-2JC">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bg3-NH-2JC">
                                 <rect key="frame" x="16" y="633" width="382" height="199"/>
                                 <constraints>
                                     <constraint firstAttribute="height" priority="750" constant="199" id="8Xb-3h-Ddv"/>
@@ -215,6 +215,12 @@
                         <viewLayoutGuide key="safeArea" id="5Oe-f6-0uU"/>
                     </view>
                     <navigationItem key="navigationItem" id="YwP-Z6-zBc"/>
+                    <connections>
+                        <outlet property="imageDetailCharacter" destination="2jW-rE-47h" id="NbL-cZ-CHy"/>
+                        <outlet property="lblNameDetailCharacter" destination="CfV-U9-VmA" id="f3c-pJ-S8d"/>
+                        <outlet property="lblTitleComics" destination="bg3-NH-2JC" id="coJ-FL-VgC"/>
+                        <outlet property="lblTitlteSeries" destination="YLU-ub-mfy" id="haK-Mi-ESc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HdM-k2-wx3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

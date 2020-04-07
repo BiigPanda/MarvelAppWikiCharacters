@@ -74,7 +74,12 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailHeroe = heroesCharacter[indexPath.row]
+        var detailHeroe = MarvelHeroe()
+        if filterHeroesCharacter.count > 0 {
+           detailHeroe = filterHeroesCharacter[indexPath.row]
+        } else {
+           detailHeroe = heroesCharacter[indexPath.row]
+        }
         guard let idDetailHeroe = detailHeroe.identifier else {
             print ("identifier error")
             return
@@ -89,6 +94,13 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 250.0
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailCharacter" {
+            let detailVC = segue.destination as! DetailCharacterViewController
+            detailVC.detailHeroeObject = self.detailHeroeCharacter
+        }
     }
     
 // MARK: Search Bar methods
