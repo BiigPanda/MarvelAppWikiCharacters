@@ -96,6 +96,17 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         return 250.0
     }
     
+   func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if heroesCharacter.count > 0 {
+            if indexPath.row == heroesCharacter.count - 1 {
+                downloadNextCharacters()
+            }
+        }
+    }
+
+    
+// MARK: Navigation Methods
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailCharacter" {
             let detailVC = segue.destination as! DetailCharacterViewController
@@ -147,6 +158,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                     emptyHeroe.identifier = record.value(forKey: "identifier") as? Int32
                     emptyHeroe.numComic = record.value(forKey: "numcomics") as? Int32
                     emptyHeroe.numSeries = record.value(forKey: "numseries") as? Int32
+                    emptyHeroe.totalHeroes = record.value(forKey: "totalHeroes") as? Int32
                     arrayHeroes.append(emptyHeroe)
                     emptyHeroe = MarvelHeroe()
                 }
@@ -179,6 +191,23 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             hud.dismiss()
         }
       }
+    
+    func downloadNextCharacters() {
+        let hud = JGProgressHUD(style: .dark)
+        hud.textLabel.text = "Loading"
+        hud.show(in: self.view)
+        let offsetHeroes = String(heroesCharacter.count)
+        let total = Int(heroesCharacter[0].totalHeroes!)
+        if heroesCharacter.count < total {
+            marvelClient.callApiNextCharacters(numberOffset: offsetHeroes) { (heroesNext, error) in
+                if error == nil {
+                    self.heroesCharacter += heroesNext
+                    self.tableViewHeroes.reloadData()
+                    hud.dismiss()
+                }
+            }
+        }
+    }
     
     func downloadDetailCharacter(idDetailCharacter: String, completionHandler: @escaping (_ result: DetailCharacter, _ error: Error?) -> Void) {
         let hud = JGProgressHUD(style: .dark)

@@ -20,6 +20,7 @@ class MarvelHeroe {
     var thumbnail: String = ""
     var numComic: Int32?
     var numSeries: Int32?
+    var totalHeroes: Int32?
 }
 
 
@@ -54,9 +55,33 @@ class MarvelHeroeService {
         }
     }
     
+    func callApiNextCharacters(numberOffset: String, completionHandler: @escaping (_ result: [MarvelHeroe], _ error: Error?) -> Void)  {
+        var heroesNextMarvel : [MarvelHeroe] = []
+        let endPointNextCharacters = "https://gateway.marvel.com:443/v1/public/characters?offset=\(numberOffset)&apikey=cc3e270d04c7e50ec7c7db921c88bb96&hash=b223b72d5f71869ad340852bad7669d5&ts=1"
+        Alamofire.request(endPointNextCharacters).responseJSON { (response) in
+            switch response.result {
+                   case .success(_):
+                       guard let result = response.result.value as? [String:Any] else{
+                           assertionFailure()
+                           return
+                       }
+                       let json = JSON(result)
+                       heroesNextMarvel = self.parsedHeroe(json: json)
+                       completionHandler(heroesNextMarvel,nil)
+                       break
+                   case .failure(let error):
+                       completionHandler(heroesNextMarvel,error)
+                       break
+                   }
+            
+        }
+    }
+
+    
     func parsedHeroe(json: JSON) -> [MarvelHeroe] {
         var heroeMarvel = MarvelHeroe()
         var heroesMarvel : [MarvelHeroe] = []
+        heroeMarvel.totalHeroes = Int32(json["data"]["total"].intValue)
         heroesMarvel.reserveCapacity(json["data"]["results"].count)
         for (_,subJson):(String, JSON) in json["data"]["results"] {
                           heroeMarvel.name = subJson["name"].stringValue
@@ -76,7 +101,7 @@ class MarvelHeroeService {
         let context = connection()
         let heroeEntity = NSEntityDescription.entity(forEntityName: "MarvelHeroeCharacter", in: context)
         let heroeTask = NSManagedObject(entity: heroeEntity!, insertInto: context)
-
+        heroeTask.setValue(marvelHeroe.totalHeroes, forKey: "totalHeroes")
         heroeTask.setValue(marvelHeroe.name, forKey: "name")
         heroeTask.setValue(marvelHeroe.descrip, forKey: "descrip")
         heroeTask.setValue(marvelHeroe.identifier, forKey: "identifier")

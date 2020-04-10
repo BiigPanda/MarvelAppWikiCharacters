@@ -12,9 +12,10 @@
         <attribute name="numcomics" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="numseries" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="thumbnail" optional="YES" attributeType="String"/>
+        <attribute name="totalHeroes" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="MarvelHeroeCharacter" positionX="-63" positionY="-18" width="128" height="133"/>
         <element name="DetailHeroe" positionX="-63" positionY="27" width="128" height="88"/>
+        <element name="MarvelHeroeCharacter" positionX="-63" positionY="-18" width="128" height="148"/>
     </elements>
 </model>
