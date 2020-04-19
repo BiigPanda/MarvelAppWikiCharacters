@@ -23,6 +23,8 @@
 		9A245B8D24269AD9004ACA78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A245B8B24269AD9004ACA78 /* LaunchScreen.storyboard */; };
 		9A245B9824269AD9004ACA78 /* MarvelWikiAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A245B9724269AD9004ACA78 /* MarvelWikiAppTests.swift */; };
 		9A245BA324269AD9004ACA78 /* MarvelWikiAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A245BA224269AD9004ACA78 /* MarvelWikiAppUITests.swift */; };
+		9A603411244C9D7800A320EF /* MainDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A603410244C9D7800A320EF /* MainDataService.swift */; };
+		9A603413244CA10C00A320EF /* DetailCharacterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A603412244CA10C00A320EF /* DetailCharacterService.swift */; };
 		9AFDF72A2426D95600455990 /* MainDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFDF7292426D95600455990 /* MainDataModel.swift */; };
 		9AFDF72C2426D97600455990 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFDF72B2426D97600455990 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
@@ -71,6 +73,8 @@
 		9A245B9E24269AD9004ACA78 /* MarvelWikiAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelWikiAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A245BA224269AD9004ACA78 /* MarvelWikiAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelWikiAppUITests.swift; sourceTree = "<group>"; };
 		9A245BA424269AD9004ACA78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A603410244C9D7800A320EF /* MainDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDataService.swift; sourceTree = "<group>"; };
+		9A603412244CA10C00A320EF /* DetailCharacterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCharacterService.swift; sourceTree = "<group>"; };
 		9AFDF7292426D95600455990 /* MainDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDataModel.swift; sourceTree = "<group>"; };
 		9AFDF72B2426D97600455990 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		AE8E1335BD2EC50141B52443 /* Pods-MarvelWikiAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelWikiAppTests.release.xcconfig"; path = "Target Support Files/Pods-MarvelWikiAppTests/Pods-MarvelWikiAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -127,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				9A06BE29243B824C00368772 /* DetailCharacterModel.swift */,
+				9A603412244CA10C00A320EF /* DetailCharacterService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -208,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				9AFDF7292426D95600455990 /* MainDataModel.swift */,
+				9A603410244C9D7800A320EF /* MainDataService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -493,12 +499,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A603411244C9D7800A320EF /* MainDataService.swift in Sources */,
 				9A245B7E24269AD8004ACA78 /* AppDelegate.swift in Sources */,
 				9A245B8824269AD8004ACA78 /* MarvelWikiApp.xcdatamodeld in Sources */,
 				9A06BE2D243B86F300368772 /* Utils.swift in Sources */,
 				9AFDF72C2426D97600455990 /* MainViewController.swift in Sources */,
 				9AFDF72A2426D95600455990 /* MainDataModel.swift in Sources */,
 				9A245B8024269AD8004ACA78 /* SceneDelegate.swift in Sources */,
+				9A603413244CA10C00A320EF /* DetailCharacterService.swift in Sources */,
 				9A06BE28243B794A00368772 /* DetailCharacterViewController.swift in Sources */,
 				9A06BE2A243B824C00368772 /* DetailCharacterModel.swift in Sources */,
 				9A01FFC7242BF20200F65DF8 /* MarvelHeroMainTableViewCell.swift in Sources */,

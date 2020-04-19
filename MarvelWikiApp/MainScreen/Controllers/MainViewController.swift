@@ -17,6 +17,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     @IBOutlet weak var tableViewHeroes: UITableView!
     
     private let marvelClient = MarvelHeroeService()
+    private let detailMarvelClient = DetailCharacterService()
     var heroesCharacter : [MarvelHeroe] = []
     var filterHeroesCharacter : [MarvelHeroe] = []
     var detailHeroeCharacter = DetailCharacter()
@@ -267,7 +268,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         let hud = JGProgressHUD(style: .dark)
         hud.textLabel.text = "Loading"
         hud.show(in: self.view)
-        marvelClient.callAPIDetailCharacter(idDetailHeroe: idDetailCharacter) { (detailHeroe, error) in
+        detailMarvelClient.callAPIDetailCharacter(idDetailHeroe: idDetailCharacter) { (detailHeroe, error) in
             self.detailHeroeCharacter = detailHeroe
             completionHandler(detailHeroe,nil)
             hud.dismiss()
