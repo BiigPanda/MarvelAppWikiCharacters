@@ -15,4 +15,5 @@ class MarvelHeroMainTableViewCell: UITableViewCell {
     @IBOutlet weak var descripHeroe: UITextView!
     @IBOutlet weak var lblNameHeroe: UILabel!
     @IBOutlet weak var imgHeroe: UIImageView!
+    @IBOutlet weak var detailMarvelHeroeView: UIView!
 }

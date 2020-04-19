@@ -35,6 +35,8 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         tableViewHeroes.dataSource = self
         tableViewHeroes.keyboardDismissMode = .onDrag
         searchBarHeroe.placeholder = "Search by Name of Heroe..."
+        let textFieldInsideSearchBar = searchBarHeroe.value(forKey: "searchField") as? UITextField
+        textFieldInsideSearchBar?.backgroundColor = UIColor.white
         tableViewHeroes.register(UINib(nibName: "MarvelHeroMainTableViewCell", bundle: nil), forCellReuseIdentifier: "MarvelHeroeCell")
     }
     
@@ -51,6 +53,8 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableViewHeroes.dequeueReusableCell(withIdentifier: "MarvelHeroeCell", for: indexPath) as! MarvelHeroMainTableViewCell
+        cell.detailMarvelHeroeView.clipsToBounds = true
+        cell.detailMarvelHeroeView.layer.cornerRadius = 10
 
         if filterHeroesCharacter.count > 0 {
             let heroeMarvelDetail = filterHeroesCharacter[indexPath.row]
