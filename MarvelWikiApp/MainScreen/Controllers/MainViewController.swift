@@ -20,11 +20,16 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     var heroesCharacter : [MarvelHeroe] = []
     var filterHeroesCharacter : [MarvelHeroe] = []
     var detailHeroeCharacter = DetailCharacter()
+    var hud = JGProgressHUD(style: .dark)
+
         
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        downloadCharacters()
+        heroesCharacter = loadCharacter()
+        if heroesCharacter.count == 0 {
+            showAlertDownloadCharacters()
+        }
         tableViewHeroes.delegate = self
         tableViewHeroes.dataSource = self
         tableViewHeroes.keyboardDismissMode = .onDrag
@@ -97,7 +102,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if heroesCharacter.count > 0 {
+    if heroesCharacter.count > 0  && heroesCharacter.count != Int(heroesCharacter[0].totalHeroes!) {
             if indexPath.row == heroesCharacter.count - 1 {
                 downloadNextCharacters()
             }
@@ -134,6 +139,19 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
 
 // MARK: Core Data and Service Methods
+    
+    func showAlertDownloadCharacters() {
+        let alert = UIAlertController(title: "Se va descargar el contenido, que tipo de descarga prefiere?", message: "Si quiere optimizar el tiempo se le recomienda que seleccione la descarga secuencial.", preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "Descarga Secuencial", style: .default, handler: { action in
+            self.downloadCharacters()
+        }))
+        alert.addAction(UIAlertAction(title: "Descarga Completa", style: .default, handler: { action in
+            self.downloadAllCharacters()
+        }))
+
+        self.present(alert, animated: true)
+    }
     
     func loadCharacter() -> [MarvelHeroe] {
          // 1
@@ -205,6 +223,42 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                     self.tableViewHeroes.reloadData()
                     hud.dismiss()
                 }
+            }
+        }
+    }
+    
+    func downloadAllCharacters() {
+        hud.textLabel.text = "Loading"
+        hud.show(in: self.view)
+        var offsetHeroes: String = ""
+        var total: Int = 0
+        if heroesCharacter.count == 0 {
+            offsetHeroes = "0"
+            total = 0
+        } else {
+            offsetHeroes = String(heroesCharacter.count)
+            total = Int(heroesCharacter[0].totalHeroes!)
+        }
+        
+        if heroesCharacter.count < total {
+            marvelClient.callApiAllCharacters(numberOffset: offsetHeroes) { (heroesNext, error) in
+                if error == nil {
+                    self.heroesCharacter += heroesNext
+                    self.downloadAllCharacters()
+                }
+            }
+        } else {
+            if heroesCharacter.count == 0  {
+                marvelClient.callApiAllCharacters(numberOffset: offsetHeroes) { (heroesNext, error) in
+                    if error == nil {
+                        self.heroesCharacter += heroesNext
+                        self.downloadAllCharacters()
+                    }
+                }
+            }
+            if heroesCharacter.count == total && heroesCharacter.count != 0 {
+                self.tableViewHeroes.reloadData()
+                hud.dismiss()
             }
         }
     }
