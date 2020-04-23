@@ -78,7 +78,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" red="0.86274509803921573" green="0.20784313725490194" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="M1d-bR-f9a" firstAttribute="leading" secondItem="42X-OH-jRx" secondAttribute="trailing" constant="41" id="54Y-K4-xOD"/>
                             <constraint firstItem="m4A-1y-QIU" firstAttribute="top" secondItem="i31-iK-zYS" secondAttribute="bottom" constant="22" id="8KE-7W-AaT"/>
@@ -103,6 +103,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" red="0.86274509799999999" green="0.20784313730000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="UNj-qc-qtm" secondAttribute="trailing" constant="15" id="HhX-ZU-Hz7"/>
                     <constraint firstItem="UNj-qc-qtm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="NTh-Uy-jxn"/>

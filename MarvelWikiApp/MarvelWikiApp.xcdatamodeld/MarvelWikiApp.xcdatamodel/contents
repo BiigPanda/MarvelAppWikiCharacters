@@ -5,6 +5,14 @@
         <attribute name="nameDetail" optional="YES" attributeType="String"/>
         <attribute name="thumbnailDetail" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="FavoriteHeroeCharacter" representedClassName="FavoriteHeroeCharacter" syncable="YES" codeGenerationType="class">
+        <attribute name="descrip" optional="YES" attributeType="String"/>
+        <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="numcomics" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="numseries" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="thumbnail" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="MarvelHeroeCharacter" representedClassName="MarvelHeroeCharacter" syncable="YES" codeGenerationType="class">
         <attribute name="descrip" optional="YES" attributeType="String"/>
         <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
@@ -17,5 +25,6 @@
     <elements>
         <element name="DetailHeroe" positionX="-63" positionY="27" width="128" height="88"/>
         <element name="MarvelHeroeCharacter" positionX="-63" positionY="-18" width="128" height="148"/>
+        <element name="FavoriteHeroeCharacter" positionX="-63" positionY="36" width="128" height="133"/>
     </elements>
 </model>

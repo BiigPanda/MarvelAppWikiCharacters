@@ -26,5 +26,7 @@ class DetailCharacterViewController: UIViewController {
     @IBAction func backToMain(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    @IBAction func addToFav(_ sender: Any) {
+    }
     
 }

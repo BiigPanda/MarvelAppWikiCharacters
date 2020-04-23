@@ -17,7 +17,9 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jeJ-j6-Z9B">
                                 <rect key="frame" x="0.0" y="100" width="414" height="713"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" red="0.86274509799999999" green="0.20784313730000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="separatorColor" red="0.86274509799999999" green="0.20784313730000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.86274509799999999" green="0.20784313730000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MarvelHeroeCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MarvelHeroeCell" rowHeight="250" id="ar5-UW-9BC" customClass="MarvelHeroMainTableViewCell" customModule="MarvelWikiApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="250"/>
@@ -25,7 +27,9 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ar5-UW-9BC" id="XTc-Y5-A1f">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" red="0.86274509799999999" green="0.20784313730000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.86274509799999999" green="0.20784313730000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -33,11 +37,11 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="iak-Df-6B5"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" backgroundImage="img_splash_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Flp-4i-RcP">
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Flp-4i-RcP">
                                 <rect key="frame" x="0.0" y="44" width="414" height="56"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="barTintColor" red="0.92549019610000005" green="0.1215686275" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="bgB-aG-Ykn"/>
@@ -94,10 +98,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2jW-rE-47h">
-                                <rect key="frame" x="97" y="44" width="220" height="240"/>
+                                <rect key="frame" x="97" y="82" width="220" height="202"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="220" id="TUR-8b-SeQ"/>
-                                    <constraint firstAttribute="height" constant="240" id="lW6-sD-mSR"/>
+                                    <constraint firstAttribute="height" constant="202" id="lW6-sD-mSR"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Heroe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CfV-U9-VmA">
@@ -177,6 +181,17 @@
                                     <action selector="backToMain:" destination="eUc-Bh-37e" eventType="touchUpInside" id="QC0-4Y-byD"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6Z-a7-Lcy">
+                                <rect key="frame" x="355" y="43" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="2Vh-2X-F8v"/>
+                                    <constraint firstAttribute="height" constant="32" id="xGD-Vi-bCY"/>
+                                </constraints>
+                                <state key="normal" image="img_icon_white_favs"/>
+                                <connections>
+                                    <action selector="addToFav:" destination="eUc-Bh-37e" eventType="touchUpInside" id="ZZX-ZF-I50"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -189,12 +204,16 @@
                             <constraint firstItem="dmL-85-zay" firstAttribute="top" secondItem="5Oe-f6-0uU" secondAttribute="top" id="AlZ-LZ-b5K"/>
                             <constraint firstItem="bx1-Ob-LcM" firstAttribute="top" secondItem="U40-pN-cif" secondAttribute="bottom" constant="3" id="Alz-Ej-uxb"/>
                             <constraint firstItem="bg3-NH-2JC" firstAttribute="leading" secondItem="5Oe-f6-0uU" secondAttribute="leading" constant="16" id="C8h-dj-uUV"/>
-                            <constraint firstItem="2jW-rE-47h" firstAttribute="top" secondItem="5Oe-f6-0uU" secondAttribute="top" id="Drw-Bj-zVJ"/>
+                            <constraint firstItem="2jW-rE-47h" firstAttribute="top" secondItem="5Oe-f6-0uU" secondAttribute="top" constant="38" id="Drw-Bj-zVJ"/>
+                            <constraint firstItem="yk9-cc-K8Q" firstAttribute="top" secondItem="c6Z-a7-Lcy" secondAttribute="bottom" constant="252" id="IZR-bG-mDh"/>
                             <constraint firstItem="2jW-rE-47h" firstAttribute="leading" secondItem="dmL-85-zay" secondAttribute="trailing" constant="30" id="RLb-7X-LIC"/>
                             <constraint firstItem="yk9-cc-K8Q" firstAttribute="top" secondItem="CfV-U9-VmA" secondAttribute="bottom" constant="8" id="STw-Ph-4BS"/>
                             <constraint firstItem="5Oe-f6-0uU" firstAttribute="trailing" secondItem="2jW-rE-47h" secondAttribute="trailing" constant="97" id="Shf-pw-3tY"/>
                             <constraint firstItem="5Oe-f6-0uU" firstAttribute="trailing" secondItem="kvv-Ai-f2C" secondAttribute="trailing" constant="97" id="VBJ-Up-agV"/>
+                            <constraint firstItem="5Oe-f6-0uU" firstAttribute="trailing" secondItem="c6Z-a7-Lcy" secondAttribute="trailing" constant="27" id="VNB-8P-l2d"/>
+                            <constraint firstItem="c6Z-a7-Lcy" firstAttribute="leading" secondItem="dmL-85-zay" secondAttribute="trailing" constant="288" id="Vbt-cj-FAM"/>
                             <constraint firstItem="5Oe-f6-0uU" firstAttribute="trailing" secondItem="YLU-ub-mfy" secondAttribute="trailing" constant="16" id="Vfd-ze-2z3"/>
+                            <constraint firstItem="c6Z-a7-Lcy" firstAttribute="top" secondItem="O3u-Gv-lS1" secondAttribute="top" constant="43" id="WFl-Nm-UgX"/>
                             <constraint firstItem="U40-pN-cif" firstAttribute="top" secondItem="yk9-cc-K8Q" secondAttribute="bottom" constant="7" id="X7n-64-csO"/>
                             <constraint firstAttribute="trailing" secondItem="bx1-Ob-LcM" secondAttribute="trailing" id="Xgy-nC-Edt"/>
                             <constraint firstItem="bg3-NH-2JC" firstAttribute="top" secondItem="pzs-qs-PiG" secondAttribute="bottom" constant="11" id="YZs-9D-EAh"/>
@@ -228,7 +247,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HdM-k2-wx3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="675" y="-192"/>
+            <point key="canvasLocation" x="673.91304347826087" y="-192.1875"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="nsT-HD-D0x">
@@ -253,25 +272,48 @@
         <!--Favourites-->
         <scene sceneID="R7D-dC-Pav">
             <objects>
-                <viewController id="tl7-nn-8ko" sceneMemberID="viewController">
+                <viewController id="tl7-nn-8ko" customClass="FavoriteHeroeViewController" customModule="MarvelWikiApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8zd-wC-9GU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0y9-MF-yKZ">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FavoriteMarvelHeroeCell" rowHeight="250" id="8eN-Ef-w2n" customClass="MarvelHeroMainTableViewCell" customModule="MarvelWikiApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="250"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8eN-Ef-w2n" id="A6T-fZ-R3b">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" red="0.86274509799999999" green="0.20784313730000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.86274509799999999" green="0.20784313730000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="0y9-MF-yKZ" firstAttribute="bottom" secondItem="hpe-Jv-iRS" secondAttribute="bottom" id="3Lb-tG-H4O"/>
+                            <constraint firstItem="0y9-MF-yKZ" firstAttribute="trailing" secondItem="hpe-Jv-iRS" secondAttribute="trailing" id="O5c-BT-9aI"/>
+                            <constraint firstItem="0y9-MF-yKZ" firstAttribute="leading" secondItem="hpe-Jv-iRS" secondAttribute="leading" id="eL6-jX-rGz"/>
+                            <constraint firstItem="0y9-MF-yKZ" firstAttribute="top" secondItem="hpe-Jv-iRS" secondAttribute="top" id="puL-bK-vDF"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="hpe-Jv-iRS"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Favourites" image="img_icon_white_favs" selectedImage="img_icon_black_full" id="AJz-hv-ZPe"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TVB-Yy-dfk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-100" y="453"/>
+            <point key="canvasLocation" x="-100.00000000000001" y="452.67857142857139"/>
         </scene>
     </scenes>
     <resources>
-        <image name="img_icon_black_full" width="16" height="16"/>
-        <image name="img_icon_black_main" width="64" height="64"/>
-        <image name="img_icon_white_favs" width="16" height="16"/>
-        <image name="img_icon_white_main" width="64" height="64"/>
-        <image name="img_splash_logo" width="300" height="300"/>
+        <image name="img_icon_black_full" width="32" height="32"/>
+        <image name="img_icon_black_main" width="32" height="32"/>
+        <image name="img_icon_white_favs" width="32" height="32"/>
+        <image name="img_icon_white_main" width="32" height="32"/>
     </resources>
 </document>

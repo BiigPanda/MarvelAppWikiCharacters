@@ -23,6 +23,8 @@
 		9A245B8D24269AD9004ACA78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A245B8B24269AD9004ACA78 /* LaunchScreen.storyboard */; };
 		9A245B9824269AD9004ACA78 /* MarvelWikiAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A245B9724269AD9004ACA78 /* MarvelWikiAppTests.swift */; };
 		9A245BA324269AD9004ACA78 /* MarvelWikiAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A245BA224269AD9004ACA78 /* MarvelWikiAppUITests.swift */; };
+		9A57AF762451AF4500564C30 /* FavoriteHeroeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A57AF752451AF4500564C30 /* FavoriteHeroeModel.swift */; };
+		9A57AF792451B0B500564C30 /* FavoriteHeroeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A57AF772451B0B500564C30 /* FavoriteHeroeViewController.swift */; };
 		9A603411244C9D7800A320EF /* MainDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A603410244C9D7800A320EF /* MainDataService.swift */; };
 		9A603413244CA10C00A320EF /* DetailCharacterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A603412244CA10C00A320EF /* DetailCharacterService.swift */; };
 		9AFDF72A2426D95600455990 /* MainDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFDF7292426D95600455990 /* MainDataModel.swift */; };
@@ -73,6 +75,8 @@
 		9A245B9E24269AD9004ACA78 /* MarvelWikiAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelWikiAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A245BA224269AD9004ACA78 /* MarvelWikiAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelWikiAppUITests.swift; sourceTree = "<group>"; };
 		9A245BA424269AD9004ACA78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A57AF752451AF4500564C30 /* FavoriteHeroeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteHeroeModel.swift; sourceTree = "<group>"; };
+		9A57AF772451B0B500564C30 /* FavoriteHeroeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteHeroeViewController.swift; sourceTree = "<group>"; };
 		9A603410244C9D7800A320EF /* MainDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDataService.swift; sourceTree = "<group>"; };
 		9A603412244CA10C00A320EF /* DetailCharacterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCharacterService.swift; sourceTree = "<group>"; };
 		9AFDF7292426D95600455990 /* MainDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDataModel.swift; sourceTree = "<group>"; };
@@ -177,6 +181,7 @@
 		9A245B7C24269AD8004ACA78 /* MarvelWikiApp */ = {
 			isa = PBXGroup;
 			children = (
+				9A57AF712451AEFF00564C30 /* FavoritesHeroes */,
 				9A06BE2B243B86E300368772 /* Utils */,
 				9A06BE22243B27CD00368772 /* DetailCharacter */,
 				9AFDF7282426D8DC00455990 /* MainScreen */,
@@ -207,6 +212,31 @@
 				9A245BA424269AD9004ACA78 /* Info.plist */,
 			);
 			path = MarvelWikiAppUITests;
+			sourceTree = "<group>";
+		};
+		9A57AF712451AEFF00564C30 /* FavoritesHeroes */ = {
+			isa = PBXGroup;
+			children = (
+				9A57AF732451AF1A00564C30 /* Model */,
+				9A57AF722451AF1200564C30 /* Controller */,
+			);
+			path = FavoritesHeroes;
+			sourceTree = "<group>";
+		};
+		9A57AF722451AF1200564C30 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9A57AF772451B0B500564C30 /* FavoriteHeroeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9A57AF732451AF1A00564C30 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9A57AF752451AF4500564C30 /* FavoriteHeroeModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		9AB6F89524326EC30099588B /* Model */ = {
@@ -501,7 +531,9 @@
 			files = (
 				9A603411244C9D7800A320EF /* MainDataService.swift in Sources */,
 				9A245B7E24269AD8004ACA78 /* AppDelegate.swift in Sources */,
+				9A57AF792451B0B500564C30 /* FavoriteHeroeViewController.swift in Sources */,
 				9A245B8824269AD8004ACA78 /* MarvelWikiApp.xcdatamodeld in Sources */,
+				9A57AF762451AF4500564C30 /* FavoriteHeroeModel.swift in Sources */,
 				9A06BE2D243B86F300368772 /* Utils.swift in Sources */,
 				9AFDF72C2426D97600455990 /* MainViewController.swift in Sources */,
 				9AFDF72A2426D95600455990 /* MainDataModel.swift in Sources */,
