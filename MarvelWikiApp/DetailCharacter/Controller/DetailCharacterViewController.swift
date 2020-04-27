@@ -10,6 +10,7 @@ import UIKit
 import JGProgressHUD
 import SDWebImage
 import CoreData
+import SwiftMessages
 
 class DetailCharacterViewController: UIViewController {
     var detailHeroeObject = DetailCharacter()
@@ -38,9 +39,19 @@ class DetailCharacterViewController: UIViewController {
         if marvelFavoriteHeroeDetail.isFav == false {
             marvelFavoriteHeroeDetail.isFav = true
             btnFav.setImage(UIImage(named: "img_icon_black_full"), for: .normal)
+            let viewM = MessageView.viewFromNib(layout: .cardView)
+            viewM.configureContent(title: "Favorito añadido", body: "Super Heroe añadido a favoritos", iconImage: nil, iconText: nil, buttonImage: nil, buttonTitle: nil, buttonTapHandler: nil)
+            viewM.configureTheme(.success)
+            viewM.configureDropShadow()
+            SwiftMessages.show(view: viewM)
         } else {
             marvelFavoriteHeroeDetail.isFav = false
             btnFav.setImage(UIImage(named: "img_icon_white_favs"), for: .normal)
+            let viewM = MessageView.viewFromNib(layout: .cardView)
+            viewM.configureContent(title: "Favorito eliminado", body: "Super Heroe eliminado de favoritos", iconImage: nil, iconText: nil, buttonImage: nil, buttonTitle: nil, buttonTapHandler: nil)
+            viewM.configureTheme(.error)
+            viewM.configureDropShadow()
+            SwiftMessages.show(view: viewM)
         }
         saveFavoriteHeroeCoreData(marvelHeroe: marvelFavoriteHeroeDetail)
     }
@@ -55,7 +66,7 @@ class DetailCharacterViewController: UIViewController {
         
     func convertHeroeSelectToFav(detailHeroe: DetailCharacter) {
         marvelFavoriteHeroeDetail.name = detailHeroeObject.nameDetail
-        marvelFavoriteHeroeDetail.descrip = ""
+        marvelFavoriteHeroeDetail.descrip = detailHeroeObject.descrip
         marvelFavoriteHeroeDetail.identifier = detailHeroeObject.idDetail
         marvelFavoriteHeroeDetail.thumbnail = detailHeroeObject.thumbnailDetail
         marvelFavoriteHeroeDetail.numSeries = Int32(detailHeroeObject.titleSeries.count)

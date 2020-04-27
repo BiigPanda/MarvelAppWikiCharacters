@@ -9,6 +9,7 @@ pod 'Alamofire'
 pod 'SwiftyJSON'
 pod 'JGProgressHUD'
 pod 'SDWebImage'
+pod 'SwiftMessages'
 
   # Pods for MarvelWikiApp
 

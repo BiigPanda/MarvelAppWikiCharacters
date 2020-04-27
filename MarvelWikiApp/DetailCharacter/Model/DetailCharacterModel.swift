@@ -16,6 +16,7 @@ import CoreData
 class DetailCharacter {
     var idDetail: Int32?
     var nameDetail: String?
+    var descrip: String?
     var thumbnailDetail: String = ""
     var titleComics: [String] = []
     var titleSeries: [String] = []
