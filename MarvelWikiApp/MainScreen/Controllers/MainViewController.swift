@@ -18,9 +18,11 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     private let marvelClient = MarvelHeroeService()
     private let detailMarvelClient = DetailCharacterService()
+    var favHeroeCharacter : FavoriteHeroe = FavoriteHeroe()
+    var detailHeroeCharacter = DetailCharacter()
+    var marvelHeroeSelect : MarvelHeroe = MarvelHeroe()
     var heroesCharacter : [MarvelHeroe] = []
     var filterHeroesCharacter : [MarvelHeroe] = []
-    var detailHeroeCharacter = DetailCharacter()
     var hud = JGProgressHUD(style: .dark)
 
         

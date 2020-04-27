@@ -8,6 +8,7 @@
     <entity name="FavoriteHeroeCharacter" representedClassName="FavoriteHeroeCharacter" syncable="YES" codeGenerationType="class">
         <attribute name="descrip" optional="YES" attributeType="String"/>
         <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isFav" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="numcomics" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="numseries" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
@@ -25,6 +26,6 @@
     <elements>
         <element name="DetailHeroe" positionX="-63" positionY="27" width="128" height="88"/>
         <element name="MarvelHeroeCharacter" positionX="-63" positionY="-18" width="128" height="148"/>
-        <element name="FavoriteHeroeCharacter" positionX="-63" positionY="36" width="128" height="133"/>
+        <element name="FavoriteHeroeCharacter" positionX="-63" positionY="36" width="128" height="148"/>
     </elements>
 </model>

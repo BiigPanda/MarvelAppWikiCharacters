@@ -239,6 +239,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="YwP-Z6-zBc"/>
                     <connections>
+                        <outlet property="btnFav" destination="c6Z-a7-Lcy" id="6PF-Gt-UOf"/>
                         <outlet property="imageDetailCharacter" destination="2jW-rE-47h" id="NbL-cZ-CHy"/>
                         <outlet property="lblNameDetailCharacter" destination="CfV-U9-VmA" id="f3c-pJ-S8d"/>
                         <outlet property="lblTitleComics" destination="bg3-NH-2JC" id="coJ-FL-VgC"/>
@@ -304,6 +305,9 @@
                         <viewLayoutGuide key="safeArea" id="hpe-Jv-iRS"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Favourites" image="img_icon_white_favs" selectedImage="img_icon_black_full" id="AJz-hv-ZPe"/>
+                    <connections>
+                        <outlet property="tbvFavoritesHeroes" destination="0y9-MF-yKZ" id="ydf-ey-66b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TVB-Yy-dfk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

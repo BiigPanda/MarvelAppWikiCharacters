@@ -15,5 +15,5 @@ class FavoriteHeroe {
     var thumbnail: String = ""
     var numComic: Int32?
     var numSeries: Int32?
-    var totalHeroes: Int32?
+    var isFav: Bool = false
 }
