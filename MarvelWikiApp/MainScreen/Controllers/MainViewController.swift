@@ -123,6 +123,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         if segue.identifier == "detailCharacter" {
             let detailVC = segue.destination as! DetailCharacterViewController
             detailVC.detailHeroeObject = self.detailHeroeCharacter
+            detailVC.isFavActive = true
         }
     }
     

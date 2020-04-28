@@ -83,6 +83,7 @@ class FavoriteHeroeViewController: UIViewController,UITableViewDelegate,UITableV
         if segue.identifier == "detailCharacterFavorite" {
             let detailVC = segue.destination as! DetailCharacterViewController
             detailVC.detailHeroeObject = self.detailHeroeCharacter
+            detailVC.isFavActive = false
         }
     }
     

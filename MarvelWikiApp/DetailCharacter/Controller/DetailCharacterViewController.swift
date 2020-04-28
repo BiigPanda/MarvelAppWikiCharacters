@@ -15,6 +15,7 @@ import SwiftMessages
 class DetailCharacterViewController: UIViewController {
     var detailHeroeObject = DetailCharacter()
     var marvelFavoriteHeroeDetail = FavoriteHeroe()
+    var isFavActive : Bool = false
     @IBOutlet weak var lblNameDetailCharacter: UILabel!
     @IBOutlet weak var lblTitlteSeries: UILabel!
     @IBOutlet weak var lblTitleComics: UILabel!
@@ -27,6 +28,11 @@ class DetailCharacterViewController: UIViewController {
         imageDetailCharacter.sd_setImage(with: URL(string: detailHeroeObject.thumbnailDetail), placeholderImage: UIImage(named:"img_splash_logo"))
         lblTitlteSeries.text = "\(detailHeroeObject.titleSeries)"
         lblTitleComics.text  = "\(detailHeroeObject.titleComics)"
+        if isFavActive == true {
+            btnFav.isHidden = false
+        } else {
+            btnFav.isHidden = true
+        }
         convertHeroeSelectToFav(detailHeroe: detailHeroeObject)
         marvelFavoriteHeroeDetail =  loadFavoriteHeroeInfoCoreData(favoriteHeroe: marvelFavoriteHeroeDetail)
         setButtonImageFav()
