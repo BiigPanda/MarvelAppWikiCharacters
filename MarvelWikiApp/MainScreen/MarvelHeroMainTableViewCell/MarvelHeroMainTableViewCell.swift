@@ -10,9 +10,9 @@ import UIKit
 
 class MarvelHeroMainTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var descripHeroe: UILabel!
     @IBOutlet weak var lblNumSeries: UILabel!
     @IBOutlet weak var lblNumComics: UILabel!
-    @IBOutlet weak var descripHeroe: UITextView!
     @IBOutlet weak var lblNameHeroe: UILabel!
     @IBOutlet weak var imgHeroe: UIImageView!
     @IBOutlet weak var detailMarvelHeroeView: UIView!

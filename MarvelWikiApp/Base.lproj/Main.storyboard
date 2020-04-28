@@ -40,7 +40,7 @@
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Flp-4i-RcP">
                                 <rect key="frame" x="0.0" y="44" width="414" height="56"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="barTintColor" red="0.92549019610000005" green="0.1215686275" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -322,6 +322,6 @@
         <image name="img_icon_white_main" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="B8s-dX-sGV"/>
+        <segue reference="QVE-is-7ca"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -45,8 +45,8 @@ class DetailCharacterViewController: UIViewController {
         if marvelFavoriteHeroeDetail.isFav == false {
             marvelFavoriteHeroeDetail.isFav = true
             btnFav.setImage(UIImage(named: "img_icon_black_full"), for: .normal)
-            let viewM = MessageView.viewFromNib(layout: .cardView)
-            viewM.configureContent(title: "Favorito añadido", body: "Super Heroe añadido a favoritos", iconImage: nil, iconText: nil, buttonImage: nil, buttonTitle: nil, buttonTapHandler: nil)
+            let viewM = MessageView.viewFromNib(layout: .statusLine)
+            viewM.configureContent(title: nil, body: "Super Heroe añadido a favoritos", iconImage: nil, iconText: nil, buttonImage: nil, buttonTitle: nil, buttonTapHandler: nil)
             viewM.configureTheme(.success)
             viewM.configureDropShadow()
             SwiftMessages.show(view: viewM)
@@ -54,8 +54,8 @@ class DetailCharacterViewController: UIViewController {
         } else {
             marvelFavoriteHeroeDetail.isFav = false
             btnFav.setImage(UIImage(named: "img_icon_white_favs"), for: .normal)
-            let viewM = MessageView.viewFromNib(layout: .cardView)
-            viewM.configureContent(title: "Favorito eliminado", body: "Super Heroe eliminado de favoritos", iconImage: nil, iconText: nil, buttonImage: nil, buttonTitle: nil, buttonTapHandler: nil)
+            let viewM = MessageView.viewFromNib(layout: .statusLine)
+            viewM.configureContent(title: nil, body: "Super Heroe eliminado de favoritos", iconImage: nil, iconText: nil, buttonImage: nil, buttonTitle: nil, buttonTapHandler: nil)
             viewM.configureTheme(.error)
             viewM.configureDropShadow()
             SwiftMessages.show(view: viewM)

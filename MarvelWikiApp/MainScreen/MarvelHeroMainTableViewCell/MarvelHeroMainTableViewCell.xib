@@ -65,37 +65,34 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i31-iK-zYS">
-                                <rect key="frame" x="137" y="8" width="232" height="125"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZcU-V8-ydH">
+                                <rect key="frame" x="137" y="8" width="224" height="121"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="232" id="NWc-Kc-Bep"/>
-                                    <constraint firstAttribute="height" constant="125" id="ubY-eL-hWg"/>
+                                    <constraint firstAttribute="width" constant="224" id="J25-3k-mvA"/>
+                                    <constraint firstAttribute="height" constant="121" id="gUk-5I-t6M"/>
                                 </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="ZcU-V8-ydH" firstAttribute="top" secondItem="UNj-qc-qtm" secondAttribute="top" constant="8" id="4rg-o3-36e"/>
                             <constraint firstItem="M1d-bR-f9a" firstAttribute="leading" secondItem="42X-OH-jRx" secondAttribute="trailing" constant="41" id="54Y-K4-xOD"/>
-                            <constraint firstItem="m4A-1y-QIU" firstAttribute="top" secondItem="i31-iK-zYS" secondAttribute="bottom" constant="22" id="8KE-7W-AaT"/>
                             <constraint firstItem="XCs-Hh-qqE" firstAttribute="top" secondItem="Bj8-3g-aE4" secondAttribute="bottom" constant="13" id="93a-iA-dR6"/>
-                            <constraint firstItem="TA1-Ei-DNS" firstAttribute="top" secondItem="i31-iK-zYS" secondAttribute="bottom" constant="24" id="Dh6-Vx-t6g"/>
                             <constraint firstItem="Bj8-3g-aE4" firstAttribute="top" secondItem="UNj-qc-qtm" secondAttribute="top" constant="8" id="Kds-qQ-qbd"/>
-                            <constraint firstItem="i31-iK-zYS" firstAttribute="top" secondItem="UNj-qc-qtm" secondAttribute="top" constant="8" id="MGD-m1-RgM"/>
                             <constraint firstAttribute="trailing" secondItem="M1d-bR-f9a" secondAttribute="trailing" constant="16" id="Mwk-hN-JNH"/>
                             <constraint firstItem="XCs-Hh-qqE" firstAttribute="leading" secondItem="UNj-qc-qtm" secondAttribute="leading" constant="8" id="Oo0-B5-dyj"/>
                             <constraint firstItem="42X-OH-jRx" firstAttribute="leading" secondItem="XCs-Hh-qqE" secondAttribute="trailing" constant="8" id="TJ0-7V-SKu"/>
                             <constraint firstAttribute="bottom" secondItem="M1d-bR-f9a" secondAttribute="bottom" constant="17" id="V68-QH-XbS"/>
-                            <constraint firstItem="i31-iK-zYS" firstAttribute="leading" secondItem="Bj8-3g-aE4" secondAttribute="trailing" constant="8" id="Wxt-gr-sTk"/>
-                            <constraint firstItem="i31-iK-zYS" firstAttribute="height" secondItem="Bj8-3g-aE4" secondAttribute="height" id="b82-Gq-l9D"/>
+                            <constraint firstItem="ZcU-V8-ydH" firstAttribute="leading" secondItem="Bj8-3g-aE4" secondAttribute="trailing" constant="8" id="YIg-sd-gaN"/>
+                            <constraint firstItem="m4A-1y-QIU" firstAttribute="top" secondItem="ZcU-V8-ydH" secondAttribute="bottom" constant="26" id="cGD-2f-vGf"/>
                             <constraint firstAttribute="bottom" secondItem="XCs-Hh-qqE" secondAttribute="bottom" constant="22" id="cJy-bN-2y4"/>
                             <constraint firstAttribute="trailing" secondItem="TA1-Ei-DNS" secondAttribute="trailing" constant="16" id="dcH-fS-LiB"/>
                             <constraint firstItem="Bj8-3g-aE4" firstAttribute="leading" secondItem="UNj-qc-qtm" secondAttribute="leading" constant="8" id="fzG-Ol-QsL"/>
-                            <constraint firstAttribute="trailing" secondItem="i31-iK-zYS" secondAttribute="trailing" constant="8" id="hxz-Nn-jUx"/>
+                            <constraint firstAttribute="trailing" secondItem="ZcU-V8-ydH" secondAttribute="trailing" constant="16" id="jiC-nB-b7q"/>
+                            <constraint firstItem="TA1-Ei-DNS" firstAttribute="top" secondItem="ZcU-V8-ydH" secondAttribute="bottom" constant="28" id="pYC-y7-EUu"/>
                             <constraint firstAttribute="bottom" secondItem="42X-OH-jRx" secondAttribute="bottom" constant="17" id="r5R-xu-cYu"/>
                             <constraint firstItem="42X-OH-jRx" firstAttribute="top" secondItem="m4A-1y-QIU" secondAttribute="bottom" constant="4" id="uLK-w7-odM"/>
                             <constraint firstItem="m4A-1y-QIU" firstAttribute="leading" secondItem="XCs-Hh-qqE" secondAttribute="trailing" constant="8" id="vTm-Tg-dyd"/>
@@ -113,7 +110,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="descripHeroe" destination="i31-iK-zYS" id="1d1-16-cyC"/>
+                <outlet property="descripHeroe" destination="ZcU-V8-ydH" id="Fwa-CP-cDV"/>
                 <outlet property="detailMarvelHeroeView" destination="UNj-qc-qtm" id="ALh-un-Lq9"/>
                 <outlet property="imgHeroe" destination="Bj8-3g-aE4" id="Ef1-6H-ZqW"/>
                 <outlet property="lblNameHeroe" destination="XCs-Hh-qqE" id="CfG-92-6XL"/>

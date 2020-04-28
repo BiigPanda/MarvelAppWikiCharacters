@@ -69,6 +69,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             cell.lblNumSeries.text = "\(heroeMarvelDetail.numSeries ?? 0)"
             cell.lblNumComics.text = "\(heroeMarvelDetail.numComic ?? 0)"
             cell.imgHeroe.sd_setImage(with: URL(string: heroeMarvelDetail.thumbnail), placeholderImage: UIImage(named:"img_splash_logo"))
+            cell.descripHeroe.becomeFirstResponder()
             return cell
         } else {
                 let heroeMarvelDetail = heroesCharacter[indexPath.row]
@@ -81,6 +82,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 cell.lblNumSeries.text = "\(heroeMarvelDetail.numSeries ?? 0)"
                 cell.lblNumComics.text = "\(heroeMarvelDetail.numComic ?? 0)"
                 cell.imgHeroe.sd_setImage(with: URL(string: heroeMarvelDetail.thumbnail), placeholderImage: UIImage(named:"img_splash_logo"))
+                cell.descripHeroe.becomeFirstResponder()
                 return cell
         }
     }
@@ -149,16 +151,16 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
 // MARK: Core Data and Service Methods
     
     func showAlertDownloadCharacters() {
-        let alert = UIAlertController(title: "Se va descargar el contenido, que tipo de descarga prefiere?", message: "Si quiere optimizar el tiempo se le recomienda que seleccione la descarga secuencial.", preferredStyle: .alert)
-
-        alert.addAction(UIAlertAction(title: "Descarga Secuencial", style: .default, handler: { action in
-            self.downloadCharacters()
-        }))
-        alert.addAction(UIAlertAction(title: "Descarga Completa", style: .default, handler: { action in
+//        let alert = UIAlertController(title: "Se va descargar el contenido, que tipo de descarga prefiere?", message: "Si quiere optimizar el tiempo se le recomienda que seleccione la descarga secuencial.", preferredStyle: .alert)
+//
+//        alert.addAction(UIAlertAction(title: "Descarga Secuencial", style: .default, handler: { action in
+//            self.downloadCharacters()
+//        }))
+//        alert.addAction(UIAlertAction(title: "Descarga Completa", style: .default, handler: { action in
             self.downloadAllCharacters()
-        }))
+ //       }))
 
-        self.present(alert, animated: true)
+        //self.present(alert, animated: true)
     }
     
     func loadCharacter() -> [MarvelHeroe] {
@@ -199,24 +201,24 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     
-    func downloadCharacters() {
-          let hud = JGProgressHUD(style: .dark)
-          hud.textLabel.text = "Loading"
-          hud.show(in: self.view)
-          heroesCharacter = loadCharacter()
-        if heroesCharacter.count == 0 {
-            marvelClient.callAPICharacters { (heroes, error) in
-                    if (error == nil){
-                      self.heroesCharacter = heroes
-                      self.tableViewHeroes.reloadData()
-                      hud.dismiss()
-                    }
-                }
-        } else {
-            self.tableViewHeroes.reloadData()
-            hud.dismiss()
-        }
-      }
+//    func downloadCharacters() {
+//          let hud = JGProgressHUD(style: .dark)
+//          hud.textLabel.text = "Loading"
+//          hud.show(in: self.view)
+//          heroesCharacter = loadCharacter()
+//        if heroesCharacter.count == 0 {
+//            marvelClient.callAPICharacters { (heroes, error) in
+//                    if (error == nil){
+//                      self.heroesCharacter = heroes
+//                      self.tableViewHeroes.reloadData()
+//                      hud.dismiss()
+//                    }
+//                }
+//        } else {
+//            self.tableViewHeroes.reloadData()
+//            hud.dismiss()
+//        }
+//      }
     
     func downloadNextCharacters() {
         let hud = JGProgressHUD(style: .dark)
