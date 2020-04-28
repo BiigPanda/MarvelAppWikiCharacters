@@ -44,6 +44,7 @@ class DetailCharacterViewController: UIViewController {
             viewM.configureTheme(.success)
             viewM.configureDropShadow()
             SwiftMessages.show(view: viewM)
+            saveFavoriteHeroeCoreData(marvelHeroe: marvelFavoriteHeroeDetail)
         } else {
             marvelFavoriteHeroeDetail.isFav = false
             btnFav.setImage(UIImage(named: "img_icon_white_favs"), for: .normal)
@@ -52,8 +53,8 @@ class DetailCharacterViewController: UIViewController {
             viewM.configureTheme(.error)
             viewM.configureDropShadow()
             SwiftMessages.show(view: viewM)
+            deleteFavoriteHeroeInfoCoreData(favoriteHeroe: marvelFavoriteHeroeDetail)
         }
-        saveFavoriteHeroeCoreData(marvelHeroe: marvelFavoriteHeroeDetail)
     }
     
     func setButtonImageFav() {
@@ -127,6 +128,32 @@ class DetailCharacterViewController: UIViewController {
               }
               // 4
               return favoriteHeroe
+    }
+    
+    
+    func deleteFavoriteHeroeInfoCoreData(favoriteHeroe: FavoriteHeroe)  {
+        
+        // 1
+              let appDelegate = UIApplication.shared.delegate as! AppDelegate
+              let managedContext = appDelegate.persistentContainer.viewContext
+              
+               // 2
+               let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoriteHeroeCharacter")
+              fetchRequest.predicate = NSPredicate(format: "identifier == \(favoriteHeroe.identifier ?? 0)")
+               // 3
+               do {
+                 let records = try managedContext.fetch(fetchRequest)
+                
+                if records.count > 0 {
+                    if let records = records as? [NSManagedObject]{
+                                         for record in records {
+                                            managedContext.delete(record)
+                                         }
+                                     }
+                }
+              } catch let error as NSError {
+                 print("No ha sido posible cargar \(error), \(error.userInfo)")
+              }
     }
     
     func connection() -> NSManagedObjectContext {

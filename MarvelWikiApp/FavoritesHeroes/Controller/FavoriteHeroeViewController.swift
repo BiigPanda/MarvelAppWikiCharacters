@@ -13,6 +13,10 @@ import CoreData
 
 class FavoriteHeroeViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     var favoritesHeroes : [FavoriteHeroe] = []
+    var detailHeroeCharacter = DetailCharacter()
+
+    private let detailMarvelClient = DetailCharacterService()
+
     @IBOutlet weak var tbvFavoritesHeroes: UITableView!
 
     override func viewDidLoad() {
@@ -24,11 +28,17 @@ class FavoriteHeroeViewController: UIViewController,UITableViewDelegate,UITableV
         tbvFavoritesHeroes.register(UINib(nibName: "MarvelHeroMainTableViewCell", bundle: nil), forCellReuseIdentifier: "MarvelHeroeCell")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        favoritesHeroes = loadFavoritesCharacters()
+        tbvFavoritesHeroes.reloadData()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
            return favoritesHeroes.count
        }
        
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         if favoritesHeroes.count > 0 {
             let cell = tbvFavoritesHeroes.dequeueReusableCell(withIdentifier: "MarvelHeroeCell", for: indexPath) as! MarvelHeroMainTableViewCell
                    cell.detailMarvelHeroeView.clipsToBounds = true
@@ -51,6 +61,31 @@ class FavoriteHeroeViewController: UIViewController,UITableViewDelegate,UITableV
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var detailFavHeroe = FavoriteHeroe()
+            detailFavHeroe = favoritesHeroes[indexPath.row]
+           
+            guard let idDetailHeroe = detailFavHeroe.identifier else {
+                print ("identifier error")
+                return
+            }
+            let idHeroe = "\(idDetailHeroe)"
+            downloadDetailCharacter(idDetailCharacter: idHeroe, completionHandler: {(detailHeroe, error) in
+                self.tbvFavoritesHeroes.deselectRow(at: indexPath, animated: true)
+                self.performSegue(withIdentifier: "detailCharacterFavorite", sender: nil)
+            })
+        
+    }
+    
+    // MARK: Navigation Methods
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailCharacterFavorite" {
+            let detailVC = segue.destination as! DetailCharacterViewController
+            detailVC.detailHeroeObject = self.detailHeroeCharacter
+        }
+    }
+    
     
     func loadFavoritesCharacters() -> [FavoriteHeroe] {
             // 1
@@ -60,7 +95,7 @@ class FavoriteHeroeViewController: UIViewController,UITableViewDelegate,UITableV
            var emptyHeroe = FavoriteHeroe()
            
             // 2
-            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "MarvelHeroeCharacter")
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoriteHeroeCharacter")
            
             // 3
             do {
@@ -88,4 +123,15 @@ class FavoriteHeroeViewController: UIViewController,UITableViewDelegate,UITableV
            // 4
            return []
        }
+    
+    func downloadDetailCharacter(idDetailCharacter: String, completionHandler: @escaping (_ result: DetailCharacter, _ error: Error?) -> Void) {
+        let hud = JGProgressHUD(style: .dark)
+        hud.textLabel.text = "Loading"
+        hud.show(in: self.view)
+        detailMarvelClient.callAPIDetailCharacter(idDetailHeroe: idDetailCharacter) { (detailHeroe, error) in
+            self.detailHeroeCharacter = detailHeroe
+            completionHandler(detailHeroe,nil)
+            hud.dismiss()
+        }
+    }
 }
