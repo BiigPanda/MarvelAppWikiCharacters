@@ -12,22 +12,29 @@ import SDWebImage
 import CoreData
 import SwiftMessages
 
-class DetailCharacterViewController: UIViewController {
+struct cellData {
+    var opened = Bool()
+    var title = String()
+    var sectionData = [String]()
+}
+
+class DetailCharacterViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+ 
     var detailHeroeObject = DetailCharacter()
     var marvelFavoriteHeroeDetail = FavoriteHeroe()
     var isFavActive : Bool = false
     @IBOutlet weak var lblNameDetailCharacter: UILabel!
-    @IBOutlet weak var lblTitlteSeries: UILabel!
-    @IBOutlet weak var lblTitleComics: UILabel!
     @IBOutlet weak var imageDetailCharacter: UIImageView!
     @IBOutlet weak var btnFav: UIButton!
+    @IBOutlet weak var tableViewSeriesComic: UITableView!
+    var tableViewData = [cellData]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         lblNameDetailCharacter.text = detailHeroeObject.nameDetail
         imageDetailCharacter.sd_setImage(with: URL(string: detailHeroeObject.thumbnailDetail), placeholderImage: UIImage(named:"img_splash_logo"))
-        lblTitlteSeries.text = "\(detailHeroeObject.titleSeries)"
-        lblTitleComics.text  = "\(detailHeroeObject.titleComics)"
+        imageDetailCharacter.layer.cornerRadius = imageDetailCharacter.frame.size.width / 2
+        imageDetailCharacter.clipsToBounds = true
         if isFavActive == true {
             btnFav.isHidden = false
         } else {
@@ -36,6 +43,11 @@ class DetailCharacterViewController: UIViewController {
         convertHeroeSelectToFav(detailHeroe: detailHeroeObject)
         marvelFavoriteHeroeDetail =  loadFavoriteHeroeInfoCoreData(favoriteHeroe: marvelFavoriteHeroeDetail)
         setButtonImageFav()
+        
+        tableViewData = [cellData(opened: false, title: "Title of Series", sectionData: detailHeroeObject.titleSeries),
+                         cellData(opened: false, title: "Title of Comics", sectionData: detailHeroeObject.titleComics)]
+        tableViewSeriesComic.delegate = self
+        tableViewSeriesComic.dataSource = self
     }
     
     @IBAction func backToMain(_ sender: Any) {
@@ -168,4 +180,41 @@ class DetailCharacterViewController: UIViewController {
            return delegate.persistentContainer.viewContext
        }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return tableViewData.count
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tableViewData[section].opened == true {
+            return tableViewData[section].sectionData.count + 1
+        } else {
+            return 1
+        }
+     }
+     
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let dataIndex = indexPath.row - 1
+        if indexPath.row == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellDetail") else {return UITableViewCell()}
+            cell.textLabel?.text = tableViewData[indexPath.section].title
+            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellDetail") else {return UITableViewCell()}
+            cell.textLabel?.text = tableViewData[indexPath.section].sectionData[dataIndex]
+            return cell
+        }
+     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+          if tableViewData[indexPath.section].opened == true {
+                    tableViewData[indexPath.section].opened = false
+                    let sections = IndexSet.init(integer: indexPath.section)
+                    tableView.reloadSections(sections, with: .none)
+                } else {
+                    tableViewData[indexPath.section].opened = true
+                    let sections = IndexSet.init(integer: indexPath.section)
+                    tableView.reloadSections(sections, with: .none)
+                }
+        }
+    }
 }

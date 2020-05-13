@@ -27,6 +27,8 @@
 		9A57AF792451B0B500564C30 /* FavoriteHeroeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A57AF772451B0B500564C30 /* FavoriteHeroeViewController.swift */; };
 		9A603411244C9D7800A320EF /* MainDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A603410244C9D7800A320EF /* MainDataService.swift */; };
 		9A603413244CA10C00A320EF /* DetailCharacterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A603412244CA10C00A320EF /* DetailCharacterService.swift */; };
+		9A719873246AB7390093853A /* Empirez.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A719872246AB7390093853A /* Empirez.otf */; };
+		9A719876246AB8680093853A /* Heroes Legend.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A719875246AB8670093853A /* Heroes Legend.ttf */; };
 		9AFDF72A2426D95600455990 /* MainDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFDF7292426D95600455990 /* MainDataModel.swift */; };
 		9AFDF72C2426D97600455990 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFDF72B2426D97600455990 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
@@ -79,6 +81,8 @@
 		9A57AF772451B0B500564C30 /* FavoriteHeroeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteHeroeViewController.swift; sourceTree = "<group>"; };
 		9A603410244C9D7800A320EF /* MainDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDataService.swift; sourceTree = "<group>"; };
 		9A603412244CA10C00A320EF /* DetailCharacterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCharacterService.swift; sourceTree = "<group>"; };
+		9A719872246AB7390093853A /* Empirez.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Empirez.otf; sourceTree = "<group>"; };
+		9A719875246AB8670093853A /* Heroes Legend.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Heroes Legend.ttf"; path = "MarvelWikiApp/Utils/fonts/heroes_legend/Heroes Legend.ttf"; sourceTree = SOURCE_ROOT; };
 		9AFDF7292426D95600455990 /* MainDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDataModel.swift; sourceTree = "<group>"; };
 		9AFDF72B2426D97600455990 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		AE8E1335BD2EC50141B52443 /* Pods-MarvelWikiAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelWikiAppTests.release.xcconfig"; path = "Target Support Files/Pods-MarvelWikiAppTests/Pods-MarvelWikiAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -151,6 +155,7 @@
 		9A06BE2B243B86E300368772 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				9A719874246AB8440093853A /* FontsProject */,
 				9A06BE2C243B86F300368772 /* Utils.swift */,
 			);
 			path = Utils;
@@ -237,6 +242,15 @@
 				9A57AF752451AF4500564C30 /* FavoriteHeroeModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		9A719874246AB8440093853A /* FontsProject */ = {
+			isa = PBXGroup;
+			children = (
+				9A719875246AB8670093853A /* Heroes Legend.ttf */,
+				9A719872246AB7390093853A /* Empirez.otf */,
+			);
+			path = FontsProject;
 			sourceTree = "<group>";
 		};
 		9AB6F89524326EC30099588B /* Model */ = {
@@ -398,7 +412,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A719873246AB7390093853A /* Empirez.otf in Resources */,
 				9A245B8D24269AD9004ACA78 /* LaunchScreen.storyboard in Resources */,
+				9A719876246AB8680093853A /* Heroes Legend.ttf in Resources */,
 				9A01FFC8242BF20200F65DF8 /* MarvelHeroMainTableViewCell.xib in Resources */,
 				9A245B8A24269AD9004ACA78 /* Assets.xcassets in Resources */,
 				9A245B8524269AD8004ACA78 /* Main.storyboard in Resources */,
