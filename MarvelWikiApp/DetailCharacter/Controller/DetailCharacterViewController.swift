@@ -196,10 +196,13 @@ class DetailCharacterViewController: UIViewController, UITableViewDelegate, UITa
         if indexPath.row == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellDetail") else {return UITableViewCell()}
             cell.textLabel?.text = tableViewData[indexPath.section].title
+            cell.backgroundColor = UIColor(red: 213.0/255.0, green: 87.0/255.0, blue: 69.0/255.0, alpha: 1.0)
+            cell.accessoryType = .disclosureIndicator
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellDetail") else {return UITableViewCell()}
             cell.textLabel?.text = tableViewData[indexPath.section].sectionData[dataIndex]
+            cell.backgroundColor = UIColor.white
             return cell
         }
      }
