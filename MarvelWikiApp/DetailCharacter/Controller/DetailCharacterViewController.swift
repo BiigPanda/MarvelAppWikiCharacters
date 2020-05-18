@@ -193,16 +193,29 @@ class DetailCharacterViewController: UIViewController, UITableViewDelegate, UITa
      
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let dataIndex = indexPath.row - 1
+        var imageView : UIImageView
+        imageView  = UIImageView(frame: CGRect(x: 20, y: 20, width: 18, height: 20))
+        imageView.image = UIImage(named:"img_indicator_right")
+        
+        var imageView2 : UIImageView
+        imageView2  = UIImageView(frame: CGRect(x: 20, y: 20, width: 18, height: 20))
+        imageView2.image = UIImage(named:"img_indicator_down")
+        
         if indexPath.row == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellDetail") else {return UITableViewCell()}
             cell.textLabel?.text = tableViewData[indexPath.section].title
             cell.backgroundColor = UIColor(red: 213.0/255.0, green: 87.0/255.0, blue: 69.0/255.0, alpha: 1.0)
-            cell.accessoryType = .disclosureIndicator
+             if tableViewData[indexPath.row].opened == true {
+                cell.accessoryView = imageView2
+             } else {
+                cell.accessoryView = imageView
+            }
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellDetail") else {return UITableViewCell()}
             cell.textLabel?.text = tableViewData[indexPath.section].sectionData[dataIndex]
             cell.backgroundColor = UIColor.white
+            cell.accessoryView = nil
             return cell
         }
      }
