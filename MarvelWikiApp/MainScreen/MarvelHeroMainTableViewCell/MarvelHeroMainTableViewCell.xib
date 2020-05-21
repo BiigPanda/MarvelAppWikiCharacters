@@ -40,38 +40,29 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1d-bR-f9a">
-                                <rect key="frame" x="269" y="180" width="92" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="92" id="d6B-rm-uO1"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TA1-Ei-DNS">
-                                <rect key="frame" x="269" y="157" width="92" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="90" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TA1-Ei-DNS">
+                                <rect key="frame" x="269" y="155" width="92" height="22.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="92" id="Xf1-P8-TUO"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Num series:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="42X-OH-jRx">
-                                <rect key="frame" x="137" y="180" width="91" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Num series:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="42X-OH-jRx">
+                                <rect key="frame" x="137" y="180.5" width="108" height="20.5"/>
+                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Num comics:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4A-1y-QIU">
-                                <rect key="frame" x="137" y="155" width="100" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="137" y="157" width="108" height="19.5"/>
+                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZcU-V8-ydH">
-                                <rect key="frame" x="137" y="8" width="224" height="121"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZcU-V8-ydH">
+                                <rect key="frame" x="137" y="10" width="224" height="121"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="224" id="J25-3k-mvA"/>
                                     <constraint firstAttribute="height" constant="121" id="gUk-5I-t6M"/>
@@ -80,11 +71,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1d-bR-f9a">
+                                <rect key="frame" x="269" y="180" width="92" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="92" id="d6B-rm-uO1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ZcU-V8-ydH" firstAttribute="top" secondItem="UNj-qc-qtm" secondAttribute="top" constant="8" id="4rg-o3-36e"/>
-                            <constraint firstItem="M1d-bR-f9a" firstAttribute="leading" secondItem="42X-OH-jRx" secondAttribute="trailing" constant="41" id="54Y-K4-xOD"/>
+                            <constraint firstItem="ZcU-V8-ydH" firstAttribute="top" secondItem="UNj-qc-qtm" secondAttribute="top" constant="10" id="4rg-o3-36e"/>
+                            <constraint firstItem="M1d-bR-f9a" firstAttribute="leading" secondItem="42X-OH-jRx" secondAttribute="trailing" constant="24" id="54Y-K4-xOD"/>
                             <constraint firstItem="XCs-Hh-qqE" firstAttribute="top" secondItem="Bj8-3g-aE4" secondAttribute="bottom" constant="13" id="93a-iA-dR6"/>
                             <constraint firstItem="Bj8-3g-aE4" firstAttribute="top" secondItem="UNj-qc-qtm" secondAttribute="top" constant="8" id="Kds-qQ-qbd"/>
                             <constraint firstAttribute="trailing" secondItem="M1d-bR-f9a" secondAttribute="trailing" constant="16" id="Mwk-hN-JNH"/>
@@ -97,11 +97,11 @@
                             <constraint firstAttribute="trailing" secondItem="TA1-Ei-DNS" secondAttribute="trailing" constant="16" id="dcH-fS-LiB"/>
                             <constraint firstItem="Bj8-3g-aE4" firstAttribute="leading" secondItem="UNj-qc-qtm" secondAttribute="leading" constant="8" id="fzG-Ol-QsL"/>
                             <constraint firstAttribute="trailing" secondItem="ZcU-V8-ydH" secondAttribute="trailing" constant="16" id="jiC-nB-b7q"/>
-                            <constraint firstItem="TA1-Ei-DNS" firstAttribute="top" secondItem="ZcU-V8-ydH" secondAttribute="bottom" constant="28" id="pYC-y7-EUu"/>
+                            <constraint firstItem="TA1-Ei-DNS" firstAttribute="top" secondItem="ZcU-V8-ydH" secondAttribute="bottom" constant="24" id="pYC-y7-EUu"/>
                             <constraint firstAttribute="bottom" secondItem="42X-OH-jRx" secondAttribute="bottom" constant="17" id="r5R-xu-cYu"/>
                             <constraint firstItem="42X-OH-jRx" firstAttribute="top" secondItem="m4A-1y-QIU" secondAttribute="bottom" constant="4" id="uLK-w7-odM"/>
                             <constraint firstItem="m4A-1y-QIU" firstAttribute="leading" secondItem="XCs-Hh-qqE" secondAttribute="trailing" constant="8" id="vTm-Tg-dyd"/>
-                            <constraint firstItem="TA1-Ei-DNS" firstAttribute="leading" secondItem="m4A-1y-QIU" secondAttribute="trailing" constant="32" id="yrJ-dv-R6c"/>
+                            <constraint firstItem="TA1-Ei-DNS" firstAttribute="leading" secondItem="m4A-1y-QIU" secondAttribute="trailing" constant="24" id="yrJ-dv-R6c"/>
                         </constraints>
                     </view>
                 </subviews>
