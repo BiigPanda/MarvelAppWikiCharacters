@@ -204,8 +204,11 @@ class DetailCharacterViewController: UIViewController, UITableViewDelegate, UITa
         if indexPath.row == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellDetail") else {return UITableViewCell()}
             cell.textLabel?.text = tableViewData[indexPath.section].title
+            if indexPath.section == 0 || indexPath.section == 1  {
+                cell.textLabel?.font = UIFont(name: "Empirez", size: 17)
+            }
             cell.backgroundColor = UIColor(red: 213.0/255.0, green: 87.0/255.0, blue: 69.0/255.0, alpha: 1.0)
-             if tableViewData[indexPath.row].opened == true {
+             if tableViewData[indexPath.section].opened == true {
                 cell.accessoryView = imageView2
              } else {
                 cell.accessoryView = imageView
@@ -214,8 +217,11 @@ class DetailCharacterViewController: UIViewController, UITableViewDelegate, UITa
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellDetail") else {return UITableViewCell()}
             cell.textLabel?.text = tableViewData[indexPath.section].sectionData[dataIndex]
+            cell.textLabel?.font = UIFont(name: "Futura", size: 17)
+            cell.textLabel?.adjustsFontSizeToFitWidth = true
             cell.backgroundColor = UIColor.white
             cell.accessoryView = nil
+            cell.selectionStyle = .none
             return cell
         }
      }
