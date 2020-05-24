@@ -209,11 +209,30 @@ class DetailCharacterViewController: UIViewController, UITableViewDelegate, UITa
                 cell.textLabel?.font = UIFont(name: "Empirez", size: 15)
             }
             cell.backgroundColor = UIColor(red: 213.0/255.0, green: 87.0/255.0, blue: 69.0/255.0, alpha: 1.0)
-             if tableViewData[indexPath.section].opened == true {
+            if tableViewData[indexPath.section].opened == true && detailHeroeObject.titleSeries.count > 0 {
+                cell.accessoryView = imageView2
+            } else {
+                if detailHeroeObject.titleSeries.count == 0 {
+                    cell.accessoryView = nil
+                    cell.selectionStyle = .none
+                    tableViewSeriesComic.isScrollEnabled = false
+                } else {
+                    cell.accessoryView = imageView
+                }
+            }
+            
+             if tableViewData[indexPath.section].opened == true && detailHeroeObject.titleComics.count > 0 {
                 cell.accessoryView = imageView2
              } else {
-                cell.accessoryView = imageView
+                if detailHeroeObject.titleComics.count == 0 {
+                    cell.accessoryView = nil
+                    cell.selectionStyle = .none
+                    tableViewSeriesComic.isScrollEnabled = false
+                } else {
+                    cell.accessoryView = imageView
+                }
             }
+
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellDetail") else {return UITableViewCell()}
@@ -228,16 +247,17 @@ class DetailCharacterViewController: UIViewController, UITableViewDelegate, UITa
      }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
-          if tableViewData[indexPath.section].opened == true {
-                    tableViewData[indexPath.section].opened = false
-                    let sections = IndexSet.init(integer: indexPath.section)
-                    tableView.reloadSections(sections, with: .none)
-                } else {
-                    tableViewData[indexPath.section].opened = true
-                    let sections = IndexSet.init(integer: indexPath.section)
-                    tableView.reloadSections(sections, with: .none)
-                }
+            if indexPath.row == 0 {
+              if tableViewData[indexPath.section].opened == true {
+                        tableViewData[indexPath.section].opened = false
+                        let sections = IndexSet.init(integer: indexPath.section)
+                        tableView.reloadSections(sections, with: .none)
+                    } else {
+                        tableViewData[indexPath.section].opened = true
+                        let sections = IndexSet.init(integer: indexPath.section)
+                        tableView.reloadSections(sections, with: .none)
+                    }
+            }
         }
     }
-}
+
