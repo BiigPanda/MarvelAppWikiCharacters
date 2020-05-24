@@ -145,7 +145,19 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBarHeroe.resignFirstResponder()
+        if filterHeroesCharacter.count == 0 {
+            showAlertHeroeNotFound()
+            searchBarHeroe.resignFirstResponder()
+        } else {
+            searchBarHeroe.resignFirstResponder()
+        }
+    }
+    
+    func showAlertHeroeNotFound() {
+        let alert = UIAlertController(title: "Heroe not found", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+        }))
+        self.present(alert, animated: true)
     }
 
 // MARK: Core Data and Service Methods

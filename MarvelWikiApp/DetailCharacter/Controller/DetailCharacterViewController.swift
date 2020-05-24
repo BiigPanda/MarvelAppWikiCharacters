@@ -59,7 +59,7 @@ class DetailCharacterViewController: UIViewController, UITableViewDelegate, UITa
             marvelFavoriteHeroeDetail.isFav = true
             btnFav.setImage(UIImage(named: "img_icon_black_full"), for: .normal)
             let viewM = MessageView.viewFromNib(layout: .statusLine)
-            viewM.configureContent(title: nil, body: "Super Heroe añadido a favoritos", iconImage: nil, iconText: nil, buttonImage: nil, buttonTitle: nil, buttonTapHandler: nil)
+            viewM.configureContent(title: nil, body: "Hero added to favorites", iconImage: nil, iconText: nil, buttonImage: nil, buttonTitle: nil, buttonTapHandler: nil)
             viewM.configureTheme(.success)
             viewM.configureDropShadow()
             SwiftMessages.show(view: viewM)
@@ -68,7 +68,7 @@ class DetailCharacterViewController: UIViewController, UITableViewDelegate, UITa
             marvelFavoriteHeroeDetail.isFav = false
             btnFav.setImage(UIImage(named: "img_icon_white_favs"), for: .normal)
             let viewM = MessageView.viewFromNib(layout: .statusLine)
-            viewM.configureContent(title: nil, body: "Super Heroe eliminado de favoritos", iconImage: nil, iconText: nil, buttonImage: nil, buttonTitle: nil, buttonTapHandler: nil)
+            viewM.configureContent(title: nil, body: "Hero removed from favorites", iconImage: nil, iconText: nil, buttonImage: nil, buttonTitle: nil, buttonTapHandler: nil)
             viewM.configureTheme(.error)
             viewM.configureDropShadow()
             SwiftMessages.show(view: viewM)
