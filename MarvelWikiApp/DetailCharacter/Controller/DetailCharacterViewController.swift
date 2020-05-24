@@ -32,6 +32,7 @@ class DetailCharacterViewController: UIViewController, UITableViewDelegate, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         lblNameDetailCharacter.text = detailHeroeObject.nameDetail
+        lblNameDetailCharacter.sizeToFit()
         imageDetailCharacter.sd_setImage(with: URL(string: detailHeroeObject.thumbnailDetail), placeholderImage: UIImage(named:"img_splash_logo"))
         imageDetailCharacter.layer.cornerRadius = imageDetailCharacter.frame.size.width / 2
         imageDetailCharacter.clipsToBounds = true
@@ -205,7 +206,7 @@ class DetailCharacterViewController: UIViewController, UITableViewDelegate, UITa
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellDetail") else {return UITableViewCell()}
             cell.textLabel?.text = tableViewData[indexPath.section].title
             if indexPath.section == 0 || indexPath.section == 1  {
-                cell.textLabel?.font = UIFont(name: "Empirez", size: 17)
+                cell.textLabel?.font = UIFont(name: "Empirez", size: 15)
             }
             cell.backgroundColor = UIColor(red: 213.0/255.0, green: 87.0/255.0, blue: 69.0/255.0, alpha: 1.0)
              if tableViewData[indexPath.section].opened == true {

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cvr-dn-8oR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cvr-dn-8oR">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -109,12 +109,6 @@
                                     <constraint firstAttribute="height" constant="220" id="lW6-sD-mSR"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Heroe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CfV-U9-VmA">
-                                <rect key="frame" x="146" y="292" width="122" height="30"/>
-                                <fontDescription key="fontDescription" name="Empirez" family="Empirez" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dmL-85-zay">
                                 <rect key="frame" x="19" y="44" width="48" height="30"/>
                                 <constraints>
@@ -158,10 +152,17 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Heroe" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CfV-U9-VmA">
+                                <rect key="frame" x="20" y="292" width="374" height="30"/>
+                                <fontDescription key="fontDescription" name="Empirez" family="Empirez" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="2jW-rE-47h" firstAttribute="centerX" secondItem="5Oe-f6-0uU" secondAttribute="centerX" id="7TP-nD-OyW"/>
+                            <constraint firstItem="CfV-U9-VmA" firstAttribute="width" secondItem="31X-Zk-rcA" secondAttribute="width" id="8PW-be-J2A"/>
                             <constraint firstItem="dmL-85-zay" firstAttribute="top" secondItem="5Oe-f6-0uU" secondAttribute="top" id="AlZ-LZ-b5K"/>
                             <constraint firstItem="31X-Zk-rcA" firstAttribute="leading" secondItem="5Oe-f6-0uU" secondAttribute="leading" constant="20" id="C3t-Ml-lbO"/>
                             <constraint firstItem="2jW-rE-47h" firstAttribute="top" secondItem="5Oe-f6-0uU" secondAttribute="top" constant="28" id="Drw-Bj-zVJ"/>
@@ -197,7 +198,7 @@
             <objects>
                 <tabBarController id="oEn-bT-j6q" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="jnj-A3-01U"/>
-                    <tabBar key="tabBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" id="Alq-bQ-1Sz">
+                    <tabBar key="tabBar" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" id="Alq-bQ-1Sz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -246,7 +247,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hpe-Jv-iRS"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favourites" image="img_icon_white_favs" selectedImage="img_icon_black_full" id="AJz-hv-ZPe"/>
+                    <tabBarItem key="tabBarItem" title="Favourites" image="img_icon_tab_red_empty" selectedImage="img_icon_tab_red_full" id="AJz-hv-ZPe"/>
                     <connections>
                         <outlet property="tbvFavoritesHeroes" destination="0y9-MF-yKZ" id="ydf-ey-66b"/>
                         <segue destination="eUc-Bh-37e" kind="presentation" identifier="detailCharacterFavorite" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="B8s-dX-sGV"/>
@@ -257,14 +258,15 @@
             <point key="canvasLocation" x="-100.00000000000001" y="452.67857142857139"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="B8s-dX-sGV"/>
+    </inferredMetricsTieBreakers>
     <resources>
-        <image name="arrow.left" catalog="system" width="64" height="48"/>
-        <image name="img_icon_black_full" width="32" height="32"/>
+        <image name="arrow.left" catalog="system" width="128" height="98"/>
         <image name="img_icon_black_main" width="32" height="32"/>
-        <image name="img_icon_white_favs" width="32" height="32"/>
+        <image name="img_icon_tab_red_empty" width="32" height="32"/>
+        <image name="img_icon_tab_red_full" width="38" height="38"/>
+        <image name="img_icon_white_favs" width="64" height="64"/>
         <image name="img_icon_white_main" width="32" height="32"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="QVE-is-7ca"/>
-    </inferredMetricsTieBreakers>
 </document>
