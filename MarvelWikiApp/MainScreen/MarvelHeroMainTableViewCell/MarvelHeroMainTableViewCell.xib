@@ -76,7 +76,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="121" id="q5N-O5-IGD"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Empirez" family="Empirez" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="Empirez" family="Empirez" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>

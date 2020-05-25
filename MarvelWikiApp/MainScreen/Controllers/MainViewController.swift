@@ -169,7 +169,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
 //            self.downloadCharacters()
 //        }))
 //        alert.addAction(UIAlertAction(title: "Descarga Completa", style: .default, handler: { action in
-            self.downloadAllCharacters()
+            self.downloadCharacters()
  //       }))
 
         //self.present(alert, animated: true)
@@ -213,24 +213,24 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     
-//    func downloadCharacters() {
-//          let hud = JGProgressHUD(style: .dark)
-//          hud.textLabel.text = "Loading"
-//          hud.show(in: self.view)
-//          heroesCharacter = loadCharacter()
-//        if heroesCharacter.count == 0 {
-//            marvelClient.callAPICharacters { (heroes, error) in
-//                    if (error == nil){
-//                      self.heroesCharacter = heroes
-//                      self.tableViewHeroes.reloadData()
-//                      hud.dismiss()
-//                    }
-//                }
-//        } else {
-//            self.tableViewHeroes.reloadData()
-//            hud.dismiss()
-//        }
-//      }
+    func downloadCharacters() {
+          let hud = JGProgressHUD(style: .dark)
+          hud.textLabel.text = "Loading"
+          hud.show(in: self.view)
+          heroesCharacter = loadCharacter()
+        if heroesCharacter.count == 0 {
+            marvelClient.callAPICharacters { (heroes, error) in
+                    if (error == nil){
+                      self.heroesCharacter = heroes
+                      self.tableViewHeroes.reloadData()
+                      hud.dismiss()
+                    }
+                }
+        } else {
+            self.tableViewHeroes.reloadData()
+            hud.dismiss()
+        }
+      }
     
     func downloadNextCharacters() {
         let hud = JGProgressHUD(style: .dark)
@@ -245,42 +245,6 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                     self.tableViewHeroes.reloadData()
                     hud.dismiss()
                 }
-            }
-        }
-    }
-    
-    func downloadAllCharacters() {
-        hud.textLabel.text = "Loading"
-        hud.show(in: self.view)
-        var offsetHeroes: String = ""
-        var total: Int = 0
-        if heroesCharacter.count == 0 {
-            offsetHeroes = "0"
-            total = 0
-        } else {
-            offsetHeroes = String(heroesCharacter.count)
-            total = Int(heroesCharacter[0].totalHeroes!)
-        }
-        
-        if heroesCharacter.count < total {
-            marvelClient.callApiAllCharacters(numberOffset: offsetHeroes) { (heroesNext, error) in
-                if error == nil {
-                    self.heroesCharacter += heroesNext
-                    self.downloadAllCharacters()
-                }
-            }
-        } else {
-            if heroesCharacter.count == 0  {
-                marvelClient.callApiAllCharacters(numberOffset: offsetHeroes) { (heroesNext, error) in
-                    if error == nil {
-                        self.heroesCharacter += heroesNext
-                        self.downloadAllCharacters()
-                    }
-                }
-            }
-            if heroesCharacter.count == total && heroesCharacter.count != 0 {
-                self.tableViewHeroes.reloadData()
-                hud.dismiss()
             }
         }
     }

@@ -66,29 +66,6 @@ class MarvelHeroeService {
         }
     }
     
-    func callApiAllCharacters(numberOffset: String, completionHandler: @escaping (_ result: [MarvelHeroe], _ error: Error?) -> Void)  {
-        var heroesNextMarvel : [MarvelHeroe] = []
-        let endPointNextCharacters = "https://gateway.marvel.com:443/v1/public/characters?limit=100&offset=\(numberOffset)&apikey=cc3e270d04c7e50ec7c7db921c88bb96&hash=b223b72d5f71869ad340852bad7669d5&ts=1"
-        Alamofire.request(endPointNextCharacters).responseJSON { (response) in
-            switch response.result {
-                   case .success(_):
-                       guard let result = response.result.value as? [String:Any] else{
-                           assertionFailure()
-                           return
-                       }
-                       let json = JSON(result)
-                       heroesNextMarvel = self.parsedHeroe(json: json)
-                       completionHandler(heroesNextMarvel,nil)
-                       break
-                   case .failure(let error):
-                       completionHandler(heroesNextMarvel,error)
-                       break
-                   }
-        }
-    }
-    
-    
-    
     // MARK: Core Data Methods
     
     func parsedHeroe(json: JSON) -> [MarvelHeroe] {
